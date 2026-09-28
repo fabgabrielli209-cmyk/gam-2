@@ -8,6 +8,51 @@ interface ThumbnailProps {
 
 export const GameThumbnail: React.FC<ThumbnailProps> = ({ id, category }) => {
   switch (id) {
+    case 'slope':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-emerald-500/30 via-slate-950/80 to-slate-950" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(16,185,129,0.6)]" viewBox="0 0 100 100" fill="none">
+            {/* 3D Perspective Tunnel / Slope Platform */}
+            <polygon points="15,88 85,88 62,32 38,32" fill="#022c22" stroke="#10b981" strokeWidth="1.5" />
+            
+            {/* Grid Lines on the Slope */}
+            <line x1="38" y1="32" x2="15" y2="88" stroke="#34d399" strokeWidth="1.2" />
+            <line x1="62" y1="32" x2="85" y2="88" stroke="#34d399" strokeWidth="1.2" />
+            <line x1="46" y1="32" x2="38" y2="88" stroke="#10b981" strokeWidth="0.8" opacity="0.6" />
+            <line x1="54" y1="32" x2="62" y2="88" stroke="#10b981" strokeWidth="0.8" opacity="0.6" />
+            
+            {/* Horizontal Grid Rings */}
+            <line x1="35" y1="42" x2="65" y2="42" stroke="#10b981" strokeWidth="0.8" opacity="0.5" />
+            <line x1="30" y1="54" x2="70" y2="54" stroke="#10b981" strokeWidth="1" opacity="0.7" />
+            <line x1="24" y1="68" x2="76" y2="68" stroke="#34d399" strokeWidth="1.2" opacity="0.8" />
+            <line x1="17" y1="84" x2="83" y2="84" stroke="#6ee7b7" strokeWidth="1.5" />
+
+            {/* Red Obstacle Blocks */}
+            <g transform="translate(56, 52)">
+              <rect x="0" y="0" width="10" height="14" fill="#dc2626" stroke="#f87171" strokeWidth="1" />
+              <polygon points="0,0 4,-4 14,-4 10,0" fill="#ef4444" />
+              <polygon points="10,0 14,-4 14,10 10,14" fill="#b91c1c" />
+            </g>
+
+            {/* Glowing Ball rolling forward */}
+            <g transform="translate(36, 46)">
+              {/* Ball shadow on grid */}
+              <ellipse cx="14" cy="24" rx="10" ry="3" fill="#064e3b" opacity="0.8" />
+              {/* Sphere */}
+              <circle cx="14" cy="14" r="11" fill="#10b981" stroke="#a7f3d0" strokeWidth="1.5" />
+              {/* Sphere 3D gradient highlight */}
+              <circle cx="10" cy="10" r="5" fill="#ffffff" opacity="0.85" />
+              <circle cx="8" cy="8" r="2.5" fill="#ffffff" />
+            </g>
+
+            {/* Speed Particles */}
+            <circle cx="28" cy="38" r="1.5" fill="#6ee7b7" />
+            <circle cx="72" cy="40" r="1.5" fill="#6ee7b7" />
+            <circle cx="50" cy="24" r="2" fill="#34d399" className="animate-pulse" />
+          </svg>
+        </div>
+      );
     case 'football-bros':
       return (
         <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
@@ -51,6 +96,57 @@ export const GameThumbnail: React.FC<ThumbnailProps> = ({ id, category }) => {
             {/* Sparks */}
             <circle cx="75" cy="22" r="2.5" fill="#facc15" className="animate-pulse" />
             <circle cx="84" cy="30" r="1.5" fill="#ffffff" />
+          </svg>
+        </div>
+      );
+    case 'basketball-bros':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-orange-600/35 via-amber-950/25 to-slate-950" />
+          {/* Hardwood floor lane lines */}
+          <div className="absolute inset-x-0 h-px top-1/3 bg-orange-400/20" />
+          <div className="absolute inset-x-0 h-px top-2/3 bg-orange-400/20" />
+          <div className="absolute w-36 h-36 rounded-full border border-orange-400/15 pointer-events-none" />
+          
+          <svg className="w-24 h-24 drop-shadow-[0_0_18px_rgba(249,115,22,0.6)]" viewBox="0 0 100 100" fill="none">
+            {/* Glass Backboard & Target */}
+            <g opacity="0.85">
+              <rect x="70" y="16" width="22" height="34" rx="2" fill="#0f172a" fillOpacity="0.4" stroke="#ffffff" strokeWidth="1.8" />
+              <rect x="74" y="24" width="10" height="12" fill="none" stroke="#ef4444" strokeWidth="1.5" />
+              {/* Rim support & Orange Ring */}
+              <line x1="64" y1="36" x2="74" y2="36" stroke="#ea580c" strokeWidth="3" />
+              <ellipse cx="60" cy="36" rx="9" ry="2.5" fill="none" stroke="#f97316" strokeWidth="2.5" />
+              {/* White Net strings */}
+              <path d="M51 36 L54 50 L60 50 L60 36" stroke="#ffffff" strokeWidth="1" opacity="0.8" />
+              <path d="M69 36 L66 50 L60 50" stroke="#ffffff" strokeWidth="1" opacity="0.8" />
+              <line x1="53" y1="43" x2="67" y2="43" stroke="#ffffff" strokeWidth="0.8" opacity="0.7" />
+            </g>
+
+            {/* Ball Motion Arc */}
+            <path d="M12 76 Q32 30 52 38" stroke="#fdba74" strokeWidth="2" strokeDasharray="3 3" opacity="0.7" />
+
+            {/* Glowing Basketball in foreground */}
+            <g transform="translate(18, 38)">
+              {/* Shadow */}
+              <ellipse cx="18" cy="38" rx="14" ry="4" fill="#000000" opacity="0.5" />
+              
+              {/* Ball sphere */}
+              <circle cx="18" cy="18" r="18" fill="#ea580c" stroke="#c2410c" strokeWidth="1.5" />
+              {/* 3D sphere gradient overlay */}
+              <circle cx="14" cy="14" r="14" fill="#f97316" opacity="0.8" />
+              <circle cx="11" cy="11" r="5" fill="#fdba74" opacity="0.6" />
+              
+              {/* Black Ribbing Seams */}
+              <line x1="0" y1="18" x2="36" y2="18" stroke="#1c1917" strokeWidth="1.5" />
+              <line x1="18" y1="0" x2="18" y2="36" stroke="#1c1917" strokeWidth="1.5" />
+              {/* Curved ribs */}
+              <path d="M5 6 C14 12 14 24 5 30" stroke="#1c1917" strokeWidth="1.3" fill="none" />
+              <path d="M31 6 C22 12 22 24 31 30" stroke="#1c1917" strokeWidth="1.3" fill="none" />
+            </g>
+
+            {/* Swoosh spark particles */}
+            <circle cx="60" cy="28" r="2" fill="#fed7aa" className="animate-ping" />
+            <circle cx="56" cy="20" r="1.5" fill="#facc15" />
           </svg>
         </div>
       );

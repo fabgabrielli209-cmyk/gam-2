@@ -1,5 +1,25 @@
 [
   {
+    "id": "slope",
+    "title": "Slope",
+    "slug": "slope",
+    "category": "Arcade",
+    "description": "Drive a ball down a steep, randomized 3D neon course in this adrenaline-pumping endless speed run! Avoid red blocks, maintain your balance, and survive the endless descent.",
+    "iframeUrl": "./games/slope.html",
+    "thumbnail": "slope",
+    "controls": [
+      "A / D or Left / Right Arrows: Steer ball",
+      "Stay centered: Avoid flying off edges",
+      "Dodge red obstacles: Red blocks are instant game over"
+    ],
+    "tags": ["3D", "Arcade", "Endless", "Speed", "Action"],
+    "badge": "POPULAR",
+    "rating": 4.96,
+    "plays": 85200,
+    "featured": false,
+    "aspectRatio": "16:9"
+  },
+  {
     "id": "football-bros",
     "title": "Football Bros",
     "slug": "football-bros",
@@ -18,6 +38,27 @@
     "rating": 4.98,
     "plays": 36800,
     "featured": true,
+    "aspectRatio": "16:9"
+  },
+  {
+    "id": "basketball-bros",
+    "title": "Basketball Bros",
+    "slug": "basketball-bros",
+    "category": "Action",
+    "description": "Hit the hardwood in Basketball Bros! Break ankles with wicked crossovers, drain step-back three-pointers, and execute thunderous slam dunks in electric 1v1 and 2v2 streetball games.",
+    "iframeUrl": "https://basketball-bros.io/",
+    "thumbnail": "basketball-bros",
+    "controls": [
+      "WASD / Arrow Keys: Dribble, move & aim shot",
+      "Space / Click: Jump shot, dunk & steal",
+      "Shift: Turbo sprint speed boost",
+      "Fullscreen: Expand player for full court view"
+    ],
+    "tags": ["Sports", "Basketball", "Action", "Arcade", "Multiplayer"],
+    "badge": "HOT",
+    "rating": 4.99,
+    "plays": 49500,
+    "featured": false,
     "aspectRatio": "16:9"
   },
   {
@@ -106,13 +147,13 @@
     "title": "Cookie Clicker",
     "slug": "cookie-clicker",
     "category": "Strategy",
-    "description": "The classic idle clicking game! Bake cookies, buy cursors, grandmas, farms, factories, mines, shipments, and alchemy labs. Runs locally with zero blockable dependencies!",
+    "description": "The classic 2013 idle clicking game! Bake cookies, buy cursors, grandmas, farms, factories, mines, shipments, and alchemy labs. Runs with zero external blockers!",
     "iframeUrl": "./games/cookie-clicker.html",
     "thumbnail": "cookie-clicker",
     "controls": [
-      "Left Click: Click cookie & buy upgrades",
-      "Store: Purchase automated production",
-      "Auto-save: Saves automatically every 5s"
+      "Left Click: Click giant cookie & buy upgrades",
+      "Store: Purchase automated CPS production",
+      "Auto-save: Saves progress automatically every 5s"
     ],
     "tags": ["Idle", "Strategy", "Clicker", "Classic", "Casual"],
     "badge": "POPULAR",
@@ -126,18 +167,18 @@
     "title": "Subway Surfers",
     "slug": "subway-surfers",
     "category": "Action",
-    "description": "Dash through train tracks, dodge moving subway cars, leap over obstacles, and surf on hoverboards in this legendary 3D endless runner!",
-    "iframeUrl": "https://szhong.4399.com/4399swf//upload_swf/ftp35/liuxinyu/20210324/jj01/index.html",
+    "description": "Dash through vibrant train tracks, dodge roaring subway trains, leap over hurdles, and surf on hoverboards in this legendary 3D endless runner!",
+    "iframeUrl": "https://dddavit.github.io/subway/",
     "thumbnail": "subway-surfers",
     "controls": [
       "Arrow Keys / WASD: Move left, right, jump, roll",
       "Space: Activate hoverboard",
-      "Mouse / Swipe: Dodge and steer"
+      "Mouse / Swipe: Dodge obstacles & steer"
     ],
     "tags": ["Action", "Runner", "3D", "Endless", "Arcade"],
     "badge": "POPULAR",
-    "rating": 4.95,
-    "plays": 48900,
+    "rating": 4.96,
+    "plays": 68400,
     "featured": false,
     "aspectRatio": "16:9"
   },
