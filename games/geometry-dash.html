@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Dash - Authentic Full Version</title>
+    <style>
+        /* Eliminates default spacing and locks screen proportions */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        /* Forces the official WebGL canvas to utilize maximum view real estate */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        /* Discrete visual layout for the fullscreen command trigger */
+        #fullscreen-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99999;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #2b5cff, #1134a6);
+            color: #fff;
+            border: 2px solid #fff;
+            cursor: pointer;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.1s ease;
+        }
+        #fullscreen-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #1134a6, #2b5cff);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Direct layout state command interface button -->
+    <button id="fullscreen-btn" onclick="toggleFullscreen()">GO FULLSCREEN</button>
+
+    <!-- Authentic compiled WebAssembly/WebGL Geometry Dash asset frame -->
+    <iframe 
+        id="game-frame" 
+        src="https://web-dashers.github.io/" 
+        allow="autoplay; fullscreen; keyboard; encrypted-media" 
+        allowfullscreen>
+    </iframe>
+
+    <script>
+        // Commands the client application window to maximize into raw hardware fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.warn(`Device initialization error: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
