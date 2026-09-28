@@ -1,3 +1,5 @@
+import { LOGO_DATA_URL } from '../data/logoBase64';
+
 export type DisguiseType = 'gam-2' | 'docs' | 'drive' | 'classroom' | 'desmos' | 'canvas';
 
 export interface DisguisePreset {
@@ -12,7 +14,7 @@ export const DISGUISE_PRESETS: DisguisePreset[] = [
     id: 'gam-2',
     label: 'Default (gam- 2)',
     title: 'gam- 2',
-    favicon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>"
+    favicon: LOGO_DATA_URL
   },
   {
     id: 'classroom',

@@ -1,5 +1,67 @@
 [
   {
+    "id": "football-bros",
+    "title": "Football Bros",
+    "slug": "football-bros",
+    "category": "Action",
+    "description": "Touchdown! Lead your team down the field in Football Bros. Dodge tackles, throw deep spiral passes, run routes, and celebrate epic end zone touchdowns!",
+    "iframeUrl": "./games/football-bros.html",
+    "thumbnail": "football-bros",
+    "controls": [
+      "Arrow Keys / WASD: Move quarterback & runner",
+      "Space / Click: Snap, throw pass & tackle",
+      "Shift: Turbo speed boost",
+      "Fullscreen: Maximize player view"
+    ],
+    "tags": ["Sports", "Football", "Action", "Arcade", "Multiplayer"],
+    "badge": "NEW",
+    "rating": 4.98,
+    "plays": 36800,
+    "featured": true,
+    "aspectRatio": "16:9"
+  },
+  {
+    "id": "hockey-bros",
+    "title": "Hockey Bros",
+    "slug": "hockey-bros",
+    "category": "Action",
+    "description": "Hit the rink in Hockey Bros! Skate past defenders, deke out goalies, unleash devastating slap shots, and score game-winning goals in thrilling arcade hockey matches.",
+    "iframeUrl": "https://hockeybros.io/",
+    "thumbnail": "hockey-bros",
+    "controls": [
+      "WASD / Arrow Keys: Skate & maneuver",
+      "Space / Click: Pass & shoot puck",
+      "Shift: Speed boost sprint",
+      "Fullscreen: Expand player for immersive view"
+    ],
+    "tags": ["Sports", "Hockey", "Action", "Arcade", "Multiplayer"],
+    "badge": "NEW",
+    "rating": 4.97,
+    "plays": 33100,
+    "featured": false,
+    "aspectRatio": "16:9"
+  },
+  {
+    "id": "snowball-io",
+    "title": "Snowball.io",
+    "slug": "snowball-io",
+    "category": "Action",
+    "description": "Roll up gigantic snowballs, blast opponents off the icy arena platform, and be the last snow fighter standing in this thrilling fast-paced multiplayer battle!",
+    "iframeUrl": "https://snowball-io.io/",
+    "thumbnail": "snowball-io",
+    "controls": [
+      "Mouse / WASD / Arrow Keys: Move & roll snowball",
+      "Release Left Click / Space: Launch snowball",
+      "Stay on platform: Avoid falling into icy water"
+    ],
+    "tags": ["Multiplayer", "Action", "IO Game", "Arena", "Casual"],
+    "badge": "HOT",
+    "rating": 4.95,
+    "plays": 41200,
+    "featured": false,
+    "aspectRatio": "16:9"
+  },
+  {
     "id": "baseball-bros",
     "title": "Baseball Bros",
     "slug": "baseball-bros",
@@ -13,10 +75,10 @@
       "Fullscreen: Click maximize button for best view"
     ],
     "tags": ["Sports", "Baseball", "Action", "Arcade", "Multiplayer"],
-    "badge": "NEW",
+    "badge": "HOT",
     "rating": 4.96,
     "plays": 28400,
-    "featured": true,
+    "featured": false,
     "aspectRatio": "16:9"
   },
   {

@@ -174,12 +174,138 @@ function resolveGameUrl(relPath) {
   return window.location.origin + basePath + cleanRel;
 }
 
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
 /**
  * Nexus Arcade - Unblocked Games Portal
  * Pure browser-compatible script entry point for index.html
  */
 
 const DEFAULT_GAMES = [
+  {
+    id: "football-bros",
+    title: "Football Bros",
+    slug: "football-bros",
+    category: "Action",
+    description: "Touchdown! Lead your team down the field in Football Bros. Dodge tackles, throw deep spiral passes, run routes, and celebrate epic end zone touchdowns!",
+    iframeUrl: "./games/football-bros.html",
+    thumbnail: "football-bros",
+    controls: [
+      "Arrow Keys / WASD: Move quarterback & runner",
+      "Space / Click: Snap, throw pass & tackle",
+      "Shift: Turbo speed boost",
+      "Fullscreen: Maximize player view"
+    ],
+    tags: ["Sports", "Football", "Action", "Arcade", "Multiplayer"],
+    badge: "NEW",
+    rating: 4.98,
+    plays: 36800,
+    featured: true,
+    aspectRatio: "16:9"
+  },
+  {
+    id: "hockey-bros",
+    title: "Hockey Bros",
+    slug: "hockey-bros",
+    category: "Action",
+    description: "Hit the rink in Hockey Bros! Skate past defenders, deke out goalies, unleash devastating slap shots, and score game-winning goals in thrilling arcade hockey matches.",
+    iframeUrl: "https://hockeybros.io/",
+    thumbnail: "hockey-bros",
+    controls: [
+      "WASD / Arrow Keys: Skate & maneuver",
+      "Space / Click: Pass & shoot puck",
+      "Shift: Speed boost sprint",
+      "Fullscreen: Expand player for immersive view"
+    ],
+    tags: ["Sports", "Hockey", "Action", "Arcade", "Multiplayer"],
+    badge: "NEW",
+    rating: 4.97,
+    plays: 33100,
+    featured: false,
+    aspectRatio: "16:9"
+  },
+  {
+    id: "snowball-io",
+    title: "Snowball.io",
+    slug: "snowball-io",
+    category: "Action",
+    description: "Roll up gigantic snowballs, blast opponents off the icy arena platform, and be the last snow fighter standing in this thrilling fast-paced multiplayer battle!",
+    iframeUrl: "https://snowball-io.io/",
+    thumbnail: "snowball-io",
+    controls: [
+      "Mouse / WASD / Arrow Keys: Move & roll snowball",
+      "Release Left Click / Space: Launch snowball",
+      "Stay on platform: Avoid falling into icy water"
+    ],
+    tags: ["Multiplayer", "Action", "IO Game", "Arena", "Casual"],
+    badge: "HOT",
+    rating: 4.95,
+    plays: 41200,
+    featured: false,
+    aspectRatio: "16:9"
+  },
   {
     id: "baseball-bros",
     title: "Baseball Bros",
@@ -276,7 +402,7 @@ const DEFAULT_GAMES = [
 
 // Anti-Block Camouflage Presets
 const DISGUISE_PRESETS = [
-  { id: 'gam-2', label: 'Default (gam- 2)', title: 'gam- 2', favicon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" },
+  { id: 'gam-2', label: 'Default (gam- 2)', title: 'gam- 2', favicon: './logo.png' },
   { id: 'classroom', label: 'Google Classroom', title: 'Classes', favicon: 'https://ssl.gstatic.com/classroom/favicon.png' },
   { id: 'docs', label: 'Google Docs', title: 'Untitled document - Google Docs', favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico' },
   { id: 'drive', label: 'Google Drive', title: 'My Drive - Google Drive', favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png' },
@@ -467,6 +593,95 @@ function getFilteredGames() {
 // Generate Game Vector Thumbnail SVG
 function getThumbnailHtml(id, category) {
   switch (id) {
+    case 'football-bros':
+      return `
+        <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-emerald-600/35 via-green-950/25 to-slate-950"></div>
+          <div class="absolute inset-x-0 h-px top-1/4 bg-white/20"></div>
+          <div class="absolute inset-x-0 h-px top-1/2 bg-white/30"></div>
+          <div class="absolute inset-x-0 h-px top-3/4 bg-white/20"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(34,197,94,0.5)]" viewBox="0 0 100 100" fill="none">
+            <g opacity="0.35">
+              <line x1="82" y1="18" x2="82" y2="48" stroke="#facc15" stroke-width="2" />
+              <line x1="94" y1="18" x2="94" y2="48" stroke="#facc15" stroke-width="2" />
+              <line x1="82" y1="36" x2="94" y2="36" stroke="#facc15" stroke-width="2" />
+              <line x1="88" y1="36" x2="88" y2="60" stroke="#facc15" stroke-width="2.5" />
+            </g>
+            <path d="M12 70 Q30 35 60 25" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3" />
+            <path d="M22 80 Q40 50 68 38" stroke="#86efac" stroke-width="1.5" stroke-linecap="round" opacity="0.7" />
+            <g transform="translate(18, 16) rotate(-35 30 30)">
+              <ellipse cx="32" cy="32" rx="28" ry="16" fill="#92400e" stroke="#78350f" stroke-width="2" />
+              <path d="M10 26 Q32 18 54 26" stroke="#b45309" stroke-width="3" fill="none" opacity="0.6" />
+              <path d="M14 22 Q18 32 14 42" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none" />
+              <path d="M50 22 Q46 32 50 42" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none" />
+              <line x1="12" y1="32" x2="52" y2="32" stroke="#451a03" stroke-width="1.5" />
+              <line x1="24" y1="32" x2="40" y2="32" stroke="#ffffff" stroke-width="2.5" />
+              <line x1="26" y1="28" x2="26" y2="36" stroke="#ffffff" stroke-width="2" />
+              <line x1="30" y1="27" x2="30" y2="37" stroke="#ffffff" stroke-width="2" />
+              <line x1="34" y1="27" x2="34" y2="37" stroke="#ffffff" stroke-width="2" />
+              <line x1="38" y1="28" x2="38" y2="36" stroke="#ffffff" stroke-width="2" />
+            </g>
+            <circle cx="75" cy="22" r="2.5" fill="#facc15" class="animate-pulse" />
+            <circle cx="84" cy="30" r="1.5" fill="#ffffff" />
+          </svg>
+        </div>
+      `;
+    case 'hockey-bros':
+      return `
+        <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-blue-600/30 via-sky-950/20 to-slate-950"></div>
+          <div class="absolute w-32 h-32 rounded-full border-2 border-red-500/25 pointer-events-none"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(59,130,246,0.5)]" viewBox="0 0 100 100" fill="none">
+            <line x1="10" y1="50" x2="90" y2="50" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" />
+            <rect x="68" y="24" width="22" height="34" rx="2" fill="none" stroke="#ef4444" stroke-width="2" />
+            <g transform="translate(18, 22) rotate(-28 30 30)">
+              <rect x="22" y="6" width="6" height="52" rx="1.5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+              <rect x="22" y="6" width="6" height="12" rx="1" fill="#ef4444" />
+              <path d="M22 56 L22 62 Q22 68 28 68 L48 68 Q52 68 52 64 L52 61 Q52 58 46 58 L28 58 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+              <line x1="34" y1="58" x2="34" y2="68" stroke="#f8fafc" stroke-width="1.5" />
+              <line x1="42" y1="58" x2="42" y2="68" stroke="#f8fafc" stroke-width="1.5" />
+            </g>
+            <g transform="translate(52, 44)">
+              <ellipse cx="12" cy="14" rx="10" ry="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+              <rect x="2" y="10" width="20" height="4" fill="#1e293b" />
+              <ellipse cx="12" cy="10" rx="10" ry="5" fill="#334155" />
+            </g>
+            <path d="M38 58 L52 50" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="58" cy="40" r="1.5" fill="#93c5fd" />
+            <circle cx="64" cy="46" r="2" fill="#ffffff" class="animate-ping" />
+          </svg>
+        </div>
+      `;
+    case 'snowball-io':
+      return `
+        <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-cyan-500/30 via-sky-950/30 to-slate-950"></div>
+          <div class="absolute w-36 h-36 rounded-full border border-cyan-400/20 pointer-events-none"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(56,189,248,0.6)]" viewBox="0 0 100 100" fill="none">
+            <ellipse cx="50" cy="72" rx="42" ry="16" fill="#082f49" stroke="#38bdf8" stroke-width="1.5" />
+            <ellipse cx="50" cy="71" rx="36" ry="12" fill="#0c4a6e" />
+            <path d="M18 64 C26 62 34 60 42 62" stroke="#e0f2fe" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 3" />
+            <g transform="translate(18, 40)">
+              <rect x="2" y="10" width="22" height="14" rx="3" fill="#f97316" stroke="#ea580c" stroke-width="1.5" />
+              <rect x="14" y="6" width="10" height="9" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1" />
+              <circle cx="6" cy="24" r="4.5" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+              <circle cx="20" cy="24" r="4.5" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+              <rect x="22" y="12" width="6" height="8" rx="1" fill="#71717a" />
+            </g>
+            <g transform="translate(42, 28)">
+              <circle cx="24" cy="24" r="22" fill="#f0f9ff" stroke="#bae6fd" stroke-width="2" />
+              <ellipse cx="20" cy="20" rx="16" ry="16" fill="#ffffff" />
+              <path d="M12 28 C16 34 26 38 34 34" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M18 16 C22 14 30 15 36 20" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              <circle cx="16" cy="18" r="2" fill="#38bdf8" />
+              <circle cx="30" cy="26" r="1.5" fill="#38bdf8" />
+            </g>
+            <circle cx="72" cy="30" r="2.5" fill="#e0f2fe" />
+            <circle cx="80" cy="40" r="3.5" fill="#ffffff" class="animate-pulse" />
+            <circle cx="76" cy="52" r="2" fill="#bae6fd" />
+          </svg>
+        </div>
+      `;
     case 'baseball-bros':
       return `
         <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
@@ -704,9 +919,7 @@ function render() {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
           <!-- Zone 1: Wordmark -->
           <a href="#" id="brand-home" class="flex items-center gap-2.5 text-lg font-black tracking-tight text-white hover:text-sky-400 transition-colors whitespace-nowrap">
-            <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-400/30 text-sky-400 font-mono text-sm">
-              g2
-            </span>
+            <img src="./logo.png" alt="gam- 2" class="w-8 h-8 rounded-lg object-cover ring-1 ring-cyan-500/40 shadow-sm shadow-cyan-500/30" />
             <span class="bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent font-extrabold tracking-wide">
               gam- 2
             </span>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ShieldAlert, PlusCircle, CodeXml, ExternalLink, Eye, ChevronDown } from 'lucide-react';
 import { CategoryFilter } from '../types';
 import { DISGUISE_PRESETS, DisguiseType, applyDisguise, getCurrentDisguise, launchAboutBlank } from '../utils/camouflage';
+import { LOGO_DATA_URL } from '../data/logoBase64';
 
 interface NavbarProps {
   activeCategory: CategoryFilter;
@@ -47,9 +48,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="flex items-center gap-2.5 text-xl font-black tracking-tight text-white hover:text-sky-400 transition-colors whitespace-nowrap"
           >
-            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-400/30 text-sky-400 font-mono text-sm">
-              g2
-            </span>
+            <img
+              src={LOGO_DATA_URL}
+              alt="gam- 2 Logo"
+              className="w-8 h-8 rounded-lg object-cover ring-1 ring-cyan-500/40 shadow-sm shadow-cyan-500/30"
+            />
             <span className="bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent font-extrabold tracking-wide">
               gam- 2
             </span>

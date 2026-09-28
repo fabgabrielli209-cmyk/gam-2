@@ -8,6 +8,145 @@ interface ThumbnailProps {
 
 export const GameThumbnail: React.FC<ThumbnailProps> = ({ id, category }) => {
   switch (id) {
+    case 'football-bros':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-emerald-600/35 via-green-950/25 to-slate-950" />
+          {/* Turf Yard lines */}
+          <div className="absolute inset-x-0 h-px top-1/4 bg-white/20" />
+          <div className="absolute inset-x-0 h-px top-1/2 bg-white/30" />
+          <div className="absolute inset-x-0 h-px top-3/4 bg-white/20" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(34,197,94,0.5)]" viewBox="0 0 100 100" fill="none">
+            {/* Goalposts in background */}
+            <g opacity="0.35">
+              <line x1="82" y1="18" x2="82" y2="48" stroke="#facc15" strokeWidth="2" />
+              <line x1="94" y1="18" x2="94" y2="48" stroke="#facc15" strokeWidth="2" />
+              <line x1="82" y1="36" x2="94" y2="36" stroke="#facc15" strokeWidth="2" />
+              <line x1="88" y1="36" x2="88" y2="60" stroke="#facc15" strokeWidth="2.5" />
+            </g>
+
+            {/* Passing Spiral Wind Arc */}
+            <path d="M12 70 Q30 35 60 25" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="4 3" />
+            <path d="M22 80 Q40 50 68 38" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+
+            {/* American Football */}
+            <g transform="translate(18, 16) rotate(-35 30 30)">
+              {/* Football Body */}
+              <ellipse cx="32" cy="32" rx="28" ry="16" fill="#92400e" stroke="#78350f" strokeWidth="2" />
+              {/* Upper highlight */}
+              <path d="M10 26 Q32 18 54 26" stroke="#b45309" strokeWidth="3" fill="none" opacity="0.6" />
+              {/* White End Stripes */}
+              <path d="M14 22 Q18 32 14 42" stroke="#ffffff" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+              <path d="M50 22 Q46 32 50 42" stroke="#ffffff" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+              {/* Center Seam */}
+              <line x1="12" y1="32" x2="52" y2="32" stroke="#451a03" strokeWidth="1.5" />
+              {/* White Laces */}
+              <line x1="24" y1="32" x2="40" y2="32" stroke="#ffffff" strokeWidth="2.5" />
+              <line x1="26" y1="28" x2="26" y2="36" stroke="#ffffff" strokeWidth="2" />
+              <line x1="30" y1="27" x2="30" y2="37" stroke="#ffffff" strokeWidth="2" />
+              <line x1="34" y1="27" x2="34" y2="37" stroke="#ffffff" strokeWidth="2" />
+              <line x1="38" y1="28" x2="38" y2="36" stroke="#ffffff" strokeWidth="2" />
+            </g>
+
+            {/* Sparks */}
+            <circle cx="75" cy="22" r="2.5" fill="#facc15" className="animate-pulse" />
+            <circle cx="84" cy="30" r="1.5" fill="#ffffff" />
+          </svg>
+        </div>
+      );
+    case 'hockey-bros':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-blue-600/30 via-sky-950/20 to-slate-950" />
+          {/* Face-off circle graphic */}
+          <div className="absolute w-36 h-36 rounded-full border-2 border-red-500/25 pointer-events-none" />
+          <div className="absolute w-8 h-8 rounded-full border border-red-500/30 pointer-events-none" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(59,130,246,0.5)]" viewBox="0 0 100 100" fill="none">
+            {/* Ice rink red goal line */}
+            <line x1="10" y1="50" x2="90" y2="50" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.4" />
+
+            {/* Goal Net */}
+            <rect x="68" y="24" width="22" height="34" rx="2" fill="none" stroke="#ef4444" strokeWidth="2" />
+            <path d="M68 28 L90 28 M68 36 L90 36 M68 44 L90 44 M68 52 L90 52" stroke="#ef4444" strokeWidth="0.8" opacity="0.4" />
+            <path d="M74 24 L74 58 M80 24 L80 58 M86 24 L86 58" stroke="#ef4444" strokeWidth="0.8" opacity="0.4" />
+
+            {/* Hockey Stick */}
+            <g transform="translate(18, 22) rotate(-28 30 30)">
+              {/* Shaft */}
+              <rect x="22" y="6" width="6" height="52" rx="1.5" fill="#f8fafc" stroke="#94a3b8" strokeWidth="1.5" />
+              {/* Upper grip tape */}
+              <rect x="22" y="6" width="6" height="12" rx="1" fill="#ef4444" />
+              {/* Blade curve */}
+              <path d="M22 56 L22 62 Q22 68 28 68 L48 68 Q52 68 52 64 L52 61 Q52 58 46 58 L28 58 Z" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+              {/* Blade white tape */}
+              <line x1="34" y1="58" x2="34" y2="68" stroke="#f8fafc" strokeWidth="1.5" />
+              <line x1="42" y1="58" x2="42" y2="68" stroke="#f8fafc" strokeWidth="1.5" />
+            </g>
+
+            {/* Flying Puck */}
+            <g transform="translate(52, 44)">
+              {/* Puck 3D cylinder */}
+              <ellipse cx="12" cy="14" rx="10" ry="5" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+              <rect x="2" y="10" width="20" height="4" fill="#1e293b" />
+              <ellipse cx="12" cy="10" rx="10" ry="5" fill="#334155" />
+            </g>
+
+            {/* Speed trails & ice skate sparks */}
+            <path d="M38 58 L52 50" stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M30 64 L46 55" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="58" cy="40" r="1.5" fill="#93c5fd" />
+            <circle cx="64" cy="46" r="2" fill="#ffffff" className="animate-ping" />
+          </svg>
+        </div>
+      );
+    case 'snowball-io':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-cyan-500/30 via-sky-950/30 to-slate-950" />
+          {/* Icy Arena Ring */}
+          <div className="absolute w-44 h-44 rounded-full border border-cyan-400/20 pointer-events-none" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(56,189,248,0.6)]" viewBox="0 0 100 100" fill="none">
+            {/* Ice platform */}
+            <ellipse cx="50" cy="72" rx="42" ry="16" fill="#082f49" stroke="#38bdf8" strokeWidth="1.5" />
+            <ellipse cx="50" cy="71" rx="36" ry="12" fill="#0c4a6e" />
+
+            {/* Snow track / trail behind vehicle */}
+            <path d="M18 64 C26 62 34 60 42 62" stroke="#e0f2fe" strokeWidth="4" strokeLinecap="round" strokeDasharray="3 3" />
+
+            {/* Snowplow Vehicle Body */}
+            <g transform="translate(18, 40)">
+              {/* Chassis */}
+              <rect x="2" y="10" width="22" height="14" rx="3" fill="#f97316" stroke="#ea580c" strokeWidth="1.5" />
+              {/* Cockpit window */}
+              <rect x="14" y="6" width="10" height="9" rx="2" fill="#38bdf8" stroke="#0284c7" strokeWidth="1" />
+              {/* Wheels */}
+              <circle cx="6" cy="24" r="4.5" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
+              <circle cx="20" cy="24" r="4.5" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
+              {/* Bumper pushing mount */}
+              <rect x="22" y="12" width="6" height="8" rx="1" fill="#71717a" />
+            </g>
+
+            {/* Giant Growing Snowball */}
+            <g transform="translate(42, 28)">
+              {/* Snowball sphere */}
+              <circle cx="24" cy="24" r="22" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="2" />
+              {/* Texture shading */}
+              <ellipse cx="20" cy="20" rx="16" ry="16" fill="#ffffff" />
+              <path d="M12 28 C16 34 26 38 34 34" stroke="#7dd3fc" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <path d="M18 16 C22 14 30 15 36 20" stroke="#7dd3fc" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              {/* Snow sparkles */}
+              <circle cx="16" cy="18" r="2" fill="#38bdf8" />
+              <circle cx="30" cy="26" r="1.5" fill="#38bdf8" />
+            </g>
+
+            {/* Snow particles flying off */}
+            <circle cx="72" cy="30" r="2.5" fill="#e0f2fe" />
+            <circle cx="80" cy="40" r="3.5" fill="#ffffff" className="animate-pulse" />
+            <circle cx="76" cy="52" r="2" fill="#bae6fd" />
+            <circle cx="84" cy="26" r="1.5" fill="#bae6fd" />
+          </svg>
+        </div>
+      );
     case 'baseball-bros':
       return (
         <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
