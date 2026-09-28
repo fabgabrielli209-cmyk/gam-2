@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Search, SlidersHorizontal, Gamepad, Sparkles, FolderArchive } from 'lucide-react';
 import { Game, CategoryFilter, SortOption } from './types';
+import { DEFAULT_GAMES } from './data/defaultGames';
 import { Navbar } from './components/Navbar';
 import { HeroBanner } from './components/HeroBanner';
 import { GameCard } from './components/GameCard';
@@ -10,7 +11,16 @@ import { JsonCatalogModal } from './components/JsonCatalogModal';
 import { CloakView } from './components/CloakView';
 
 export default function App() {
-  const [games, setGames] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>(() => {
+    try {
+      const saved = localStorage.getItem('nexus_games_catalog');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch {}
+    return DEFAULT_GAMES;
+  });
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,33 +35,32 @@ export default function App() {
   const [isCloaked, setIsCloaked] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isJsonModalOpen, setIsJsonModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Load games from localStorage or fetch /games.json
+  // Load games from localStorage or fetch games.json
   const loadGames = useCallback(async () => {
-    setIsLoading(true);
     try {
       const saved = localStorage.getItem('nexus_games_catalog');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
           setGames(parsed);
-          setIsLoading(false);
           return;
         }
       }
 
-      // Fetch the iframe JSON file
-      const response = await fetch('/games.json');
+      // Fetch the iframe JSON file with relative fallback
+      const jsonPath = new URL('games.json', window.location.href).href;
+      const response = await fetch(jsonPath);
       if (response.ok) {
         const data = await response.json();
-        setGames(data);
-        localStorage.setItem('nexus_games_catalog', JSON.stringify(data));
+        if (Array.isArray(data) && data.length > 0) {
+          setGames(data);
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(data));
+        }
       }
     } catch (e) {
-      console.error('Failed to load games catalog:', e);
-    } finally {
-      setIsLoading(false);
+      console.warn('Could not fetch games.json, using bundled catalog:', e);
     }
   }, []);
 
@@ -114,14 +123,16 @@ export default function App() {
   const handleResetDefaults = async () => {
     localStorage.removeItem('nexus_games_catalog');
     try {
-      const response = await fetch('/games.json');
+      const response = await fetch(new URL('games.json', window.location.href).href);
       if (response.ok) {
         const data = await response.json();
         setGames(data);
+        return;
       }
     } catch (e) {
-      console.error(e);
+      console.warn(e);
     }
+    setGames(DEFAULT_GAMES);
   };
 
   // Random Game Picker

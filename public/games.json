@@ -5,7 +5,7 @@
     "slug": "retro-snake",
     "category": "Arcade",
     "description": "The timeless arcade classic. Eat glowing apples, grow your serpentine body, and avoid crashing into walls or your own tail!",
-    "iframeUrl": "/games/snake.html",
+    "iframeUrl": "./games/snake.html",
     "thumbnail": "snake",
     "controls": [
       "Arrow Keys / WASD: Steer snake",
@@ -25,7 +25,7 @@
     "slug": "block-master",
     "category": "Puzzle",
     "description": "Stack, rotate, and clear falling tetromino blocks. Plan your drops, clear multiple lines for tetris combos, and climb the speed levels.",
-    "iframeUrl": "/games/tetris.html",
+    "iframeUrl": "./games/tetris.html",
     "thumbnail": "tetris",
     "controls": [
       "Left / Right: Shift block",
@@ -47,7 +47,7 @@
     "slug": "2048-deluxe",
     "category": "Puzzle",
     "description": "Slide numbered tiles on the 4x4 grid. When two tiles with the same number touch, they merge into one! Can you reach the legendary 2048 tile?",
-    "iframeUrl": "/games/2048.html",
+    "iframeUrl": "./games/2048.html",
     "thumbnail": "2048",
     "controls": [
       "Arrow Keys / Swipe: Move tiles",
@@ -67,7 +67,7 @@
     "slug": "flappy-wings",
     "category": "Arcade",
     "description": "Tap or press space to flap your wings and navigate through treacherous green pipes. One slight mistake means game over!",
-    "iframeUrl": "/games/flappy.html",
+    "iframeUrl": "./games/flappy.html",
     "thumbnail": "flappy",
     "controls": [
       "Space / Click / Tap: Flap wings",
@@ -87,7 +87,7 @@
     "slug": "cyber-breakout",
     "category": "Arcade",
     "description": "High-octane brick breaking action. Bounce the neon energy ball, collect power-ups like multi-ball, laser cannon, and wide paddle to shatter all bricks.",
-    "iframeUrl": "/games/breakout.html",
+    "iframeUrl": "./games/breakout.html",
     "thumbnail": "breakout",
     "controls": [
       "Mouse / Arrow Keys: Move paddle",
@@ -107,7 +107,7 @@
     "slug": "star-defender",
     "category": "Action",
     "description": "Defend the solar system against cascading waves of hostile alien invaders. Dodge alien plasma and destroy the mothership for bonus points.",
-    "iframeUrl": "/games/space-invaders.html",
+    "iframeUrl": "./games/space-invaders.html",
     "thumbnail": "space-invaders",
     "controls": [
       "A / D or Left / Right: Move cannon",
@@ -127,7 +127,7 @@
     "slug": "pong-legends",
     "category": "Sports",
     "description": "The grandmother of all video games! Play solo against 3 difficulty levels of AI bot or challenge a friend in 2-Player local versus mode.",
-    "iframeUrl": "/games/pong.html",
+    "iframeUrl": "./games/pong.html",
     "thumbnail": "pong",
     "controls": [
       "Player 1: W / S or Up / Down",
@@ -148,7 +148,7 @@
     "slug": "desert-dino-run",
     "category": "Arcade",
     "description": "Hop over cacti and duck under flying pterodactyls in this fast-paced prehistoric endless runner with seamless day-to-night cycles.",
-    "iframeUrl": "/games/dino.html",
+    "iframeUrl": "./games/dino.html",
     "thumbnail": "dino",
     "controls": [
       "Space / Up Arrow: Jump",
@@ -168,7 +168,7 @@
     "slug": "minesweeper-classic",
     "category": "Strategy",
     "description": "Deduce mine locations using number clues, place flags with surgical precision, and uncover the entire safe grid. Includes 3 grid difficulties.",
-    "iframeUrl": "/games/minesweeper.html",
+    "iframeUrl": "./games/minesweeper.html",
     "thumbnail": "minesweeper",
     "controls": [
       "Left Click: Uncover tile",
@@ -188,7 +188,7 @@
     "slug": "highway-rush-2d",
     "category": "Action",
     "description": "Weave through thick highway traffic at breakneck speeds. Collect gold coins, snatch nitro boosts, and avoid devastating rear-end crashes!",
-    "iframeUrl": "/games/highway-racer.html",
+    "iframeUrl": "./games/highway-racer.html",
     "thumbnail": "racer",
     "controls": [
       "Left / Right or A / D: Steer car",
