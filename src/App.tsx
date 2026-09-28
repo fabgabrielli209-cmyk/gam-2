@@ -10,15 +10,34 @@ import { AddGameModal } from './components/AddGameModal';
 import { JsonCatalogModal } from './components/JsonCatalogModal';
 import { CloakView } from './components/CloakView';
 
+const REMOVED_GAME_IDS = new Set([
+  'block-master-tetris',
+  'game-2048',
+  'flappy-wings',
+  'cyber-breakout',
+  'star-defender',
+  'pong-legends',
+  'desert-dino-run',
+  'minesweeper-classic',
+  'highway-rush-2d'
+]);
+
 export default function App() {
   const [games, setGames] = useState<Game[]>(() => {
     try {
       const saved = localStorage.getItem('nexus_games_catalog');
       if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        const parsed: Game[] = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
+          if (cleaned.length > 0) {
+            localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
+            return cleaned;
+          }
+        }
       }
     } catch {}
+    localStorage.removeItem('nexus_games_catalog');
     return DEFAULT_GAMES;
   });
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
@@ -27,7 +46,13 @@ export default function App() {
   const [sortOption, setSortOption] = useState<SortOption>('popular');
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
-      return JSON.parse(localStorage.getItem('nexus_favorites') || '[]');
+      const saved = JSON.parse(localStorage.getItem('nexus_favorites') || '[]');
+      if (Array.isArray(saved)) {
+        const cleaned = saved.filter(id => !REMOVED_GAME_IDS.has(id));
+        localStorage.setItem('nexus_favorites', JSON.stringify(cleaned));
+        return cleaned;
+      }
+      return [];
     } catch {
       return [];
     }
@@ -42,10 +67,14 @@ export default function App() {
     try {
       const saved = localStorage.getItem('nexus_games_catalog');
       if (saved) {
-        const parsed = JSON.parse(saved);
+        const parsed: Game[] = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          setGames(parsed);
-          return;
+          const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
+          if (cleaned.length > 0) {
+            setGames(cleaned);
+            localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
+            return;
+          }
         }
       }
 
@@ -53,15 +82,18 @@ export default function App() {
       const jsonPath = new URL('games.json', window.location.href).href;
       const response = await fetch(jsonPath);
       if (response.ok) {
-        const data = await response.json();
+        const data: Game[] = await response.json();
         if (Array.isArray(data) && data.length > 0) {
-          setGames(data);
-          localStorage.setItem('nexus_games_catalog', JSON.stringify(data));
+          const cleaned = data.filter(g => !REMOVED_GAME_IDS.has(g.id));
+          setGames(cleaned.length > 0 ? cleaned : DEFAULT_GAMES);
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned.length > 0 ? cleaned : DEFAULT_GAMES));
+          return;
         }
       }
     } catch (e) {
       console.warn('Could not fetch games.json, using bundled catalog:', e);
     }
+    setGames(DEFAULT_GAMES);
   }, []);
 
   useEffect(() => {
@@ -185,12 +217,9 @@ export default function App() {
 
   const categoryTabs: CategoryFilter[] = [
     'All',
-    'Arcade',
-    'Puzzle',
-    'Action',
-    'Retro',
-    'Sports',
     'Strategy',
+    'Action',
+    'Arcade',
     'Favorites',
   ];
 

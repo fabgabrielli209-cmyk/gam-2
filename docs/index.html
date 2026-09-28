@@ -175,12 +175,181 @@ function resolveGameUrl(relPath) {
   return window.location.origin + basePath + cleanRel;
 }
 
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
 /**
  * Nexus Arcade - Unblocked Games Portal
  * Pure browser-compatible script entry point for index.html
  */
 
 const DEFAULT_GAMES = [
+  {
+    id: "geometry-dash",
+    title: "Geometry Dash",
+    slug: "geometry-dash",
+    category: "Arcade",
+    description: "Jump, fly, and flip your way through dangerous obstacles, rhythm-based spike corridors, and gravity portals in the authentic full version of Geometry Dash!",
+    iframeUrl: "https://web-dashers.github.io/",
+    thumbnail: "geometry-dash",
+    controls: [
+      "Space / Up Arrow / Click: Jump & Fly",
+      "P: Pause game",
+      "R: Quick restart"
+    ],
+    tags: ["Rhythm", "Platformer", "Action", "Arcade", "Music"],
+    badge: "HOT",
+    rating: 4.98,
+    plays: 62400,
+    featured: true
+  },
+  {
+    id: "cookie-clicker",
+    title: "Cookie Clicker",
+    slug: "cookie-clicker",
+    category: "Strategy",
+    description: "The original idle clicking game! Bake billions of cookies, purchase grandma bakeries, factories, and cosmic portals to exponentially grow your cookie empire.",
+    iframeUrl: "https://ozh.github.io/cookieclicker/",
+    thumbnail: "cookie-clicker",
+    controls: [
+      "Left Click: Click giant cookie & buy upgrades",
+      "Mouse Wheel: Scroll store & upgrades",
+      "Auto-save: Game progress saves automatically"
+    ],
+    tags: ["Idle", "Strategy", "Clicker", "Classic", "Casual"],
+    badge: "POPULAR",
+    rating: 4.97,
+    plays: 78500,
+    featured: false
+  },
+  {
+    id: "subway-surfers",
+    title: "Subway Surfers",
+    slug: "subway-surfers",
+    category: "Action",
+    description: "Dash through train tracks, dodge moving subway cars, leap over obstacles, and surf on hoverboards in this legendary 3D endless runner!",
+    iframeUrl: "https://szhong.4399.com/4399swf//upload_swf/ftp35/liuxinyu/20210324/jj01/index.html",
+    thumbnail: "subway-surfers",
+    controls: [
+      "Arrow Keys / WASD: Move left, right, jump, roll",
+      "Space: Activate hoverboard",
+      "Mouse / Swipe: Dodge and steer"
+    ],
+    tags: ["Action", "Runner", "3D", "Endless", "Arcade"],
+    badge: "POPULAR",
+    rating: 4.95,
+    plays: 48900,
+    featured: false
+  },
   {
     id: "retro-snake",
     title: "Retro Snake",
@@ -191,145 +360,10 @@ const DEFAULT_GAMES = [
     thumbnail: "snake",
     controls: ["Arrow Keys / WASD: Steer snake", "Space: Pause / Resume", "R: Restart game"],
     tags: ["Arcade", "Retro", "Classic", "High Score"],
-    badge: "HOT",
+    badge: "CLASSIC",
     rating: 4.9,
     plays: 14250,
-    featured: true
-  },
-  {
-    id: "block-master-tetris",
-    title: "Block Master",
-    slug: "block-master",
-    category: "Puzzle",
-    description: "Stack, rotate, and clear falling tetromino blocks. Plan your drops, clear multiple lines for tetris combos, and climb the speed levels.",
-    iframeUrl: "./games/tetris.html",
-    thumbnail: "tetris",
-    controls: ["Left / Right: Shift block", "Up / X: Rotate", "Down: Soft drop", "Space: Hard drop", "C: Hold piece"],
-    tags: ["Puzzle", "Retro", "Strategy", "Brain"],
-    badge: "POPULAR",
-    rating: 4.95,
-    plays: 22400,
-    featured: true
-  },
-  {
-    id: "game-2048",
-    title: "2048 Deluxe",
-    slug: "2048-deluxe",
-    category: "Puzzle",
-    description: "Slide numbered tiles on the 4x4 grid. When two tiles with the same number touch, they merge into one! Can you reach the legendary 2048 tile?",
-    iframeUrl: "./games/2048.html",
-    thumbnail: "2048",
-    controls: ["Arrow Keys / Swipe: Move tiles", "U: Undo move", "R: New Game"],
-    tags: ["Puzzle", "Math", "Casual", "Strategy"],
-    badge: "CLASSIC",
-    rating: 4.8,
-    plays: 18900,
     featured: false
-  },
-  {
-    id: "flappy-wings",
-    title: "Flappy Wings",
-    slug: "flappy-wings",
-    category: "Arcade",
-    description: "Tap or press space to flap your wings and navigate through treacherous green pipes. One slight mistake means game over!",
-    iframeUrl: "./games/flappy.html",
-    thumbnail: "flappy",
-    controls: ["Space / Click / Tap: Flap wings", "P: Pause", "R: Quick Restart"],
-    tags: ["Arcade", "Skill", "Runner", "Challenging"],
-    badge: "HOT",
-    rating: 4.7,
-    plays: 16800,
-    featured: false
-  },
-  {
-    id: "cyber-breakout",
-    title: "Cyber Breakout",
-    slug: "cyber-breakout",
-    category: "Arcade",
-    description: "High-octane brick breaking action. Bounce the neon energy ball, collect power-ups like multi-ball, laser cannon, and wide paddle to shatter all bricks.",
-    iframeUrl: "./games/breakout.html",
-    thumbnail: "breakout",
-    controls: ["Mouse / Arrow Keys: Move paddle", "Space: Launch ball / Fire lasers", "P: Pause"],
-    tags: ["Arcade", "Action", "Neon", "Retro"],
-    badge: "NEW",
-    rating: 4.85,
-    plays: 11300,
-    featured: true
-  },
-  {
-    id: "star-defender",
-    title: "Star Defender",
-    slug: "star-defender",
-    category: "Action",
-    description: "Defend the solar system against cascading waves of hostile alien invaders. Dodge alien plasma and destroy the mothership for bonus points.",
-    iframeUrl: "./games/space-invaders.html",
-    thumbnail: "space-invaders",
-    controls: ["A / D or Left / Right: Move cannon", "Space: Fire blaster", "P: Pause"],
-    tags: ["Action", "Retro", "Shooter", "Sci-Fi"],
-    badge: "CLASSIC",
-    rating: 4.75,
-    plays: 13900,
-    featured: false
-  },
-  {
-    id: "pong-legends",
-    title: "Pong Legends",
-    slug: "pong-legends",
-    category: "Sports",
-    description: "The grandmother of all video games! Play solo against 3 difficulty levels of AI bot or challenge a friend in 2-Player local versus mode.",
-    iframeUrl: "./games/pong.html",
-    thumbnail: "pong",
-    controls: ["Player 1: W / S or Up / Down", "Player 2 (2P Mode): Up / Down Arrows", "Space: Serve ball", "1 / 2: Toggle 1P vs 2P Mode"],
-    tags: ["Sports", "2-Player", "Retro", "Classic"],
-    badge: "POPULAR",
-    rating: 4.65,
-    plays: 9400,
-    featured: false
-  },
-  {
-    id: "desert-dino-run",
-    title: "Desert Dino Run",
-    slug: "desert-dino-run",
-    category: "Arcade",
-    description: "Hop over cacti and duck under flying pterodactyls in this fast-paced prehistoric endless runner with seamless day-to-night cycles.",
-    iframeUrl: "./games/dino.html",
-    thumbnail: "dino",
-    controls: ["Space / Up Arrow: Jump", "Down Arrow: Duck / Fast drop", "R: Restart"],
-    tags: ["Arcade", "Runner", "Endless", "Pixel"],
-    badge: "HOT",
-    rating: 4.88,
-    plays: 25100,
-    featured: false
-  },
-  {
-    id: "minesweeper-classic",
-    title: "Minesweeper Classic",
-    slug: "minesweeper-classic",
-    category: "Strategy",
-    description: "Deduce mine locations using number clues, place flags with surgical precision, and uncover the entire safe grid. Includes 3 grid difficulties.",
-    iframeUrl: "./games/minesweeper.html",
-    thumbnail: "minesweeper",
-    controls: ["Left Click: Uncover tile", "Right Click / Long Press: Flag mine", "Smiley Face: Restart"],
-    tags: ["Strategy", "Puzzle", "Logic", "Windows Classic"],
-    badge: "CLASSIC",
-    rating: 4.7,
-    plays: 8600,
-    featured: false
-  },
-  {
-    id: "highway-rush-2d",
-    title: "Highway Rush 2D",
-    slug: "highway-rush-2d",
-    category: "Action",
-    description: "Weave through thick highway traffic at breakneck speeds. Collect gold coins, snatch nitro boosts, and avoid devastating rear-end crashes!",
-    iframeUrl: "./games/highway-racer.html",
-    thumbnail: "racer",
-    controls: ["Left / Right or A / D: Steer car", "Up / W: Nitro Boost", "Down / S: Brakes", "Space: Horn / Flash"],
-    tags: ["Action", "Driving", "Racing", "Arcade"],
-    badge: "NEW",
-    rating: 4.82,
-    plays: 15400,
-    featured: true
   }
 ];
 
@@ -348,19 +382,45 @@ const state = {
   likedGames: {}
 };
 
+// Obsolete games to purge from browser storage
+const REMOVED_GAME_IDS = new Set([
+  'block-master-tetris',
+  'game-2048',
+  'flappy-wings',
+  'cyber-breakout',
+  'star-defender',
+  'pong-legends',
+  'desert-dino-run',
+  'minesweeper-classic',
+  'highway-rush-2d'
+]);
+
 // Initialize State from Storage & Fetch games.json
 function initApp() {
   try {
     const savedFavs = localStorage.getItem('nexus_favorites');
-    if (savedFavs) state.favorites = JSON.parse(savedFavs);
+    if (savedFavs) {
+      const parsedFavs = JSON.parse(savedFavs);
+      if (Array.isArray(parsedFavs)) {
+        state.favorites = parsedFavs.filter(id => !REMOVED_GAME_IDS.has(id));
+        localStorage.setItem('nexus_favorites', JSON.stringify(state.favorites));
+      }
+    }
   } catch (e) {}
 
   try {
     const savedGames = localStorage.getItem('nexus_games_catalog');
     if (savedGames) {
       const parsed = JSON.parse(savedGames);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        state.games = parsed;
+      if (Array.isArray(parsed)) {
+        const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
+        if (cleaned.length > 0) {
+          state.games = cleaned;
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
+        } else {
+          state.games = DEFAULT_GAMES;
+          localStorage.removeItem('nexus_games_catalog');
+        }
       }
     }
   } catch (e) {}
@@ -369,8 +429,10 @@ function initApp() {
   fetch(resolveGameUrl('games.json'))
     .then(res => res.ok ? res.json() : null)
     .then(data => {
-      if (Array.isArray(data) && data.length > 0 && !localStorage.getItem('nexus_games_catalog')) {
-        state.games = data;
+      if (Array.isArray(data) && data.length > 0) {
+        const cleaned = data.filter(g => !REMOVED_GAME_IDS.has(g.id));
+        state.games = cleaned.length > 0 ? cleaned : DEFAULT_GAMES;
+        localStorage.setItem('nexus_games_catalog', JSON.stringify(state.games));
         render();
       }
     })
@@ -416,6 +478,72 @@ function getFilteredGames() {
 // Generate Game Vector Thumbnail SVG
 function getThumbnailHtml(id, category) {
   switch (id) {
+    case 'geometry-dash':
+      return `
+        <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-purple-950/60 via-indigo-950/40 to-slate-950"></div>
+          <div class="absolute bottom-0 left-0 right-0 h-7 bg-indigo-950/80 border-t-2 border-cyan-400"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(34,211,238,0.6)]" viewBox="0 0 100 100" fill="none">
+            <line x1="0" y1="78" x2="100" y2="78" stroke="#38bdf8" stroke-width="2" />
+            <line x1="20" y1="78" x2="20" y2="100" stroke="#0284c7" stroke-width="1.5" />
+            <line x1="50" y1="78" x2="50" y2="100" stroke="#0284c7" stroke-width="1.5" />
+            <line x1="80" y1="78" x2="80" y2="100" stroke="#0284c7" stroke-width="1.5" />
+            <polygon points="56,78 66,54 76,78" fill="#ef4444" stroke="#f87171" stroke-width="2" />
+            <polygon points="74,78 84,54 94,78" fill="#ef4444" stroke="#f87171" stroke-width="2" />
+            <g transform="translate(32, 42) rotate(-15 15 15)">
+              <rect x="0" y="0" width="30" height="30" rx="4" fill="#84cc16" stroke="#facc15" stroke-width="3" />
+              <rect x="5" y="5" width="20" height="20" rx="2" fill="#4d7c0f" />
+              <rect x="8" y="9" width="5" height="5" fill="#facc15" />
+              <rect x="17" y="9" width="5" height="5" fill="#facc15" />
+              <rect x="10" y="17" width="10" height="4" fill="#facc15" />
+            </g>
+            <circle cx="20" cy="58" r="2" fill="#38bdf8" />
+            <circle cx="16" cy="66" r="3" fill="#a855f7" />
+            <circle cx="24" cy="72" r="2.5" fill="#facc15" />
+          </svg>
+        </div>`;
+    case 'cookie-clicker':
+      return `
+        <div class="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-amber-600/30 via-amber-950/20 to-transparent"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(217,119,6,0.6)]" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="36" fill="#d97706" stroke="#b45309" stroke-width="3" />
+            <circle cx="50" cy="50" r="32" fill="#f59e0b" />
+            <circle cx="42" cy="40" r="4.5" fill="#78350f" />
+            <circle cx="60" cy="38" r="5" fill="#78350f" />
+            <circle cx="36" cy="58" r="4" fill="#78350f" />
+            <circle cx="56" cy="56" r="5.5" fill="#78350f" />
+            <circle cx="48" cy="68" r="3.5" fill="#78350f" />
+            <circle cx="66" cy="50" r="3" fill="#78350f" />
+            <circle cx="32" cy="42" r="3" fill="#78350f" />
+            <circle cx="41" cy="39" r="1.5" fill="#92400e" />
+            <circle cx="59" cy="37" r="1.5" fill="#92400e" />
+            <circle cx="55" cy="55" r="1.8" fill="#92400e" />
+            <path d="M78 22 L80 16 L82 22 L88 24 L82 26 L80 32 L78 26 L72 24 Z" fill="#fef08a" />
+            <path d="M18 68 L19 64 L20 68 L24 69 L20 70 L19 74 L18 70 L14 69 Z" fill="#fef08a" />
+            <path d="M68 62 L68 80 L73 75 L77 84 L81 82 L77 73 L83 73 Z" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+          </svg>
+        </div>`;
+    case 'subway-surfers':
+      return `
+        <div class="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-amber-500/25 via-sky-500/10 to-transparent"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_14px_rgba(245,158,11,0.5)]" viewBox="0 0 100 100" fill="none">
+            <path d="M20 90 L42 45 M80 90 L58 45" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+            <line x1="30" y1="75" x2="70" y2="75" stroke="#94a3b8" stroke-width="2.5" />
+            <line x1="37" y1="60" x2="63" y2="60" stroke="#94a3b8" stroke-width="2" />
+            <line x1="42" y1="50" x2="58" y2="50" stroke="#94a3b8" stroke-width="1.5" />
+            <rect x="34" y="20" width="32" height="34" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+            <rect x="38" y="24" width="24" height="12" rx="2" fill="#0f172a" />
+            <circle cx="40" cy="46" r="3" fill="#facc15" />
+            <circle cx="60" cy="46" r="3" fill="#facc15" />
+            <line x1="47" y1="46" x2="53" y2="46" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
+            <circle cx="50" cy="72" r="7" fill="#fbbf24" stroke="#f59e0b" stroke-width="2" />
+            <text x="50" y="75" text-anchor="middle" fill="#78350f" font-size="7" font-weight="bold">$</text>
+            <line x1="12" y1="55" x2="28" y2="55" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="72" y1="55" x2="88" y2="55" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3" />
+          </svg>
+        </div>`;
     case 'retro-snake':
       return `
         <div class="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
@@ -553,7 +681,7 @@ function render() {
 
   const filteredGames = getFilteredGames();
   const featuredGame = state.games.find(g => g.featured) || state.games[0];
-  const categories = ['All', 'Arcade', 'Puzzle', 'Action', 'Retro', 'Sports', 'Strategy', 'Favorites'];
+  const categories = ['All', 'Strategy', 'Action', 'Arcade', 'Favorites'];
 
   root.innerHTML = `
     <div class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
@@ -570,7 +698,7 @@ function render() {
 
           <!-- Zone 2: Nav Links -->
           <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-            ${['All', 'Arcade', 'Puzzle', 'Action', 'Retro', 'Favorites'].map(cat => `
+            ${categories.map(cat => `
               <button data-cat="${cat}" class="nav-cat-btn whitespace-nowrap transition-colors py-1 relative ${
                 state.activeCategory === cat ? 'text-sky-400 font-semibold' : 'text-slate-400 hover:text-slate-200'
               }">
@@ -789,8 +917,9 @@ function renderPlayerView(game) {
             src="${resolvedUrl}"
             title="${game.title}"
             class="w-full h-full border-0 focus:outline-none"
-            allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+            allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope; display-capture"
+            allowfullscreen="true"
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
           ></iframe>
         </div>
       </div>

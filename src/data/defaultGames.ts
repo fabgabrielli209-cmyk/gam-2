@@ -2,6 +2,66 @@ import { Game } from '../types';
 
 export const DEFAULT_GAMES: Game[] = [
   {
+    id: "geometry-dash",
+    title: "Geometry Dash",
+    slug: "geometry-dash",
+    category: "Arcade",
+    description: "Jump, fly, and flip your way through dangerous obstacles, rhythm-based spike corridors, and gravity portals in the authentic full version of Geometry Dash!",
+    iframeUrl: "https://web-dashers.github.io/",
+    thumbnail: "geometry-dash",
+    controls: [
+      "Space / Up Arrow / Click: Jump & Fly",
+      "P: Pause game",
+      "R: Quick restart"
+    ],
+    tags: ["Rhythm", "Platformer", "Action", "Arcade", "Music"],
+    badge: "HOT",
+    rating: 4.98,
+    plays: 62400,
+    featured: true,
+    aspectRatio: "16:9"
+  },
+  {
+    id: "cookie-clicker",
+    title: "Cookie Clicker",
+    slug: "cookie-clicker",
+    category: "Strategy",
+    description: "The original idle clicking game! Bake billions of cookies, purchase grandma bakeries, factories, and cosmic portals to exponentially grow your cookie empire.",
+    iframeUrl: "https://ozh.github.io/cookieclicker/",
+    thumbnail: "cookie-clicker",
+    controls: [
+      "Left Click: Click giant cookie & buy upgrades",
+      "Mouse Wheel: Scroll store & upgrades",
+      "Auto-save: Game progress saves automatically"
+    ],
+    tags: ["Idle", "Strategy", "Clicker", "Classic", "Casual"],
+    badge: "POPULAR",
+    rating: 4.97,
+    plays: 78500,
+    featured: false,
+    aspectRatio: "16:9"
+  },
+  {
+    id: "subway-surfers",
+    title: "Subway Surfers",
+    slug: "subway-surfers",
+    category: "Action",
+    description: "Dash through train tracks, dodge moving subway cars, leap over obstacles, and surf on hoverboards in this legendary 3D endless runner!",
+    iframeUrl: "https://szhong.4399.com/4399swf//upload_swf/ftp35/liuxinyu/20210324/jj01/index.html",
+    thumbnail: "subway-surfers",
+    controls: [
+      "Arrow Keys / WASD: Move left, right, jump, roll",
+      "Space: Activate hoverboard",
+      "Mouse / Swipe: Dodge and steer"
+    ],
+    tags: ["Action", "Runner", "3D", "Endless", "Arcade"],
+    badge: "POPULAR",
+    rating: 4.95,
+    plays: 48900,
+    featured: false,
+    aspectRatio: "16:9"
+  },
+  {
     id: "retro-snake",
     title: "Retro Snake",
     slug: "retro-snake",
@@ -15,194 +75,10 @@ export const DEFAULT_GAMES: Game[] = [
       "R: Restart game"
     ],
     tags: ["Arcade", "Retro", "Classic", "High Score"],
-    badge: "HOT",
+    badge: "CLASSIC",
     rating: 4.9,
     plays: 14250,
-    featured: true,
-    aspectRatio: "4:3"
-  },
-  {
-    id: "block-master-tetris",
-    title: "Block Master",
-    slug: "block-master",
-    category: "Puzzle",
-    description: "Stack, rotate, and clear falling tetromino blocks. Plan your drops, clear multiple lines for tetris combos, and climb the speed levels.",
-    iframeUrl: "./games/tetris.html",
-    thumbnail: "tetris",
-    controls: [
-      "Left / Right: Shift block",
-      "Up / X: Rotate clockwise",
-      "Down: Soft drop",
-      "Space: Hard drop",
-      "C: Hold piece"
-    ],
-    tags: ["Puzzle", "Retro", "Strategy", "Brain"],
-    badge: "POPULAR",
-    rating: 4.95,
-    plays: 22400,
-    featured: true,
-    aspectRatio: "4:3"
-  },
-  {
-    id: "game-2048",
-    title: "2048 Deluxe",
-    slug: "2048-deluxe",
-    category: "Puzzle",
-    description: "Slide numbered tiles on the 4x4 grid. When two tiles with the same number touch, they merge into one! Can you reach the legendary 2048 tile?",
-    iframeUrl: "./games/2048.html",
-    thumbnail: "2048",
-    controls: [
-      "Arrow Keys / Swipe: Move tiles",
-      "U: Undo move",
-      "R: New Game"
-    ],
-    tags: ["Puzzle", "Math", "Casual", "Strategy"],
-    badge: "CLASSIC",
-    rating: 4.8,
-    plays: 18900,
-    featured: false,
-    aspectRatio: "1:1"
-  },
-  {
-    id: "flappy-wings",
-    title: "Flappy Wings",
-    slug: "flappy-wings",
-    category: "Arcade",
-    description: "Tap or press space to flap your wings and navigate through treacherous green pipes. One slight mistake means game over!",
-    iframeUrl: "./games/flappy.html",
-    thumbnail: "flappy",
-    controls: [
-      "Space / Click / Tap: Flap wings",
-      "P: Pause",
-      "R: Quick Restart"
-    ],
-    tags: ["Arcade", "Skill", "Runner", "Challenging"],
-    badge: "HOT",
-    rating: 4.7,
-    plays: 16800,
     featured: false,
     aspectRatio: "4:3"
-  },
-  {
-    id: "cyber-breakout",
-    title: "Cyber Breakout",
-    slug: "cyber-breakout",
-    category: "Arcade",
-    description: "High-octane brick breaking action. Bounce the neon energy ball, collect power-ups like multi-ball, laser cannon, and wide paddle to shatter all bricks.",
-    iframeUrl: "./games/breakout.html",
-    thumbnail: "breakout",
-    controls: [
-      "Mouse / Arrow Keys: Move paddle",
-      "Space: Launch ball / Fire lasers",
-      "P: Pause"
-    ],
-    tags: ["Arcade", "Action", "Neon", "Retro"],
-    badge: "NEW",
-    rating: 4.85,
-    plays: 11300,
-    featured: true,
-    aspectRatio: "16:9"
-  },
-  {
-    id: "star-defender",
-    title: "Star Defender",
-    slug: "star-defender",
-    category: "Action",
-    description: "Defend the solar system against cascading waves of hostile alien invaders. Dodge alien plasma and destroy the mothership for bonus points.",
-    iframeUrl: "./games/space-invaders.html",
-    thumbnail: "space-invaders",
-    controls: [
-      "A / D or Left / Right: Move cannon",
-      "Space: Fire blaster",
-      "P: Pause"
-    ],
-    tags: ["Action", "Retro", "Shooter", "Sci-Fi"],
-    badge: "CLASSIC",
-    rating: 4.75,
-    plays: 13900,
-    featured: false,
-    aspectRatio: "4:3"
-  },
-  {
-    id: "pong-legends",
-    title: "Pong Legends",
-    slug: "pong-legends",
-    category: "Sports",
-    description: "The grandmother of all video games! Play solo against 3 difficulty levels of AI bot or challenge a friend in 2-Player local versus mode.",
-    iframeUrl: "./games/pong.html",
-    thumbnail: "pong",
-    controls: [
-      "Player 1: W / S or Up / Down",
-      "Player 2 (2P Mode): Up / Down Arrows",
-      "Space: Serve ball",
-      "1 / 2: Toggle 1P vs 2P Mode"
-    ],
-    tags: ["Sports", "2-Player", "Retro", "Classic"],
-    badge: "POPULAR",
-    rating: 4.65,
-    plays: 9400,
-    featured: false,
-    aspectRatio: "16:9"
-  },
-  {
-    id: "desert-dino-run",
-    title: "Desert Dino Run",
-    slug: "desert-dino-run",
-    category: "Arcade",
-    description: "Hop over cacti and duck under flying pterodactyls in this fast-paced prehistoric endless runner with seamless day-to-night cycles.",
-    iframeUrl: "./games/dino.html",
-    thumbnail: "dino",
-    controls: [
-      "Space / Up Arrow: Jump",
-      "Down Arrow: Duck / Fast drop",
-      "R: Restart"
-    ],
-    tags: ["Arcade", "Runner", "Endless", "Pixel"],
-    badge: "HOT",
-    rating: 4.88,
-    plays: 25100,
-    featured: false,
-    aspectRatio: "16:9"
-  },
-  {
-    id: "minesweeper-classic",
-    title: "Minesweeper Classic",
-    slug: "minesweeper-classic",
-    category: "Strategy",
-    description: "Deduce mine locations using number clues, place flags with surgical precision, and uncover the entire safe grid. Includes 3 grid difficulties.",
-    iframeUrl: "./games/minesweeper.html",
-    thumbnail: "minesweeper",
-    controls: [
-      "Left Click: Uncover tile",
-      "Right Click / Long Press: Flag mine",
-      "Smiley Face: Restart"
-    ],
-    tags: ["Strategy", "Puzzle", "Logic", "Windows Classic"],
-    badge: "CLASSIC",
-    rating: 4.7,
-    plays: 8600,
-    featured: false,
-    aspectRatio: "1:1"
-  },
-  {
-    id: "highway-rush-2d",
-    title: "Highway Rush 2D",
-    slug: "highway-rush-2d",
-    category: "Action",
-    description: "Weave through thick highway traffic at breakneck speeds. Collect gold coins, snatch nitro boosts, and avoid devastating rear-end crashes!",
-    iframeUrl: "./games/highway-racer.html",
-    thumbnail: "racer",
-    controls: [
-      "Left / Right or A / D: Steer car",
-      "Up / W: Nitro Boost",
-      "Down / S: Brakes",
-      "Space: Horn / Flash"
-    ],
-    tags: ["Action", "Driving", "Racing", "Arcade"],
-    badge: "NEW",
-    rating: 4.82,
-    plays: 15400,
-    featured: true,
-    aspectRatio: "16:9"
   }
 ];

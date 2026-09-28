@@ -203,8 +203,8 @@ export const GamePlayer: React.FC<GamePlayerProps> = ({
             src={game.iframeUrl}
             title={game.title}
             className="w-full h-full border-0 focus:outline-none"
-            allow="autoplay; fullscreen; gamepad; focus-without-user-activation *"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+            allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope; display-capture"
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
           />
         </div>
       </div>

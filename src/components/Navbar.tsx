@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleCloak,
   isCloaked,
 }) => {
-  const categories: CategoryFilter[] = ['All', 'Arcade', 'Puzzle', 'Action', 'Retro', 'Favorites'];
+  const categories: CategoryFilter[] = ['All', 'Strategy', 'Action', 'Arcade', 'Favorites'];
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">

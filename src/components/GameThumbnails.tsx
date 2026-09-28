@@ -8,6 +8,97 @@ interface ThumbnailProps {
 
 export const GameThumbnail: React.FC<ThumbnailProps> = ({ id, category }) => {
   switch (id) {
+    case 'geometry-dash':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 via-indigo-950/40 to-slate-950" />
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-indigo-950/80 border-t-2 border-cyan-400" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(34,211,238,0.6)]" viewBox="0 0 100 100" fill="none">
+            {/* Ground grid lines */}
+            <line x1="0" y1="78" x2="100" y2="78" stroke="#38bdf8" strokeWidth="2" />
+            <line x1="20" y1="78" x2="20" y2="100" stroke="#0284c7" strokeWidth="1.5" />
+            <line x1="50" y1="78" x2="50" y2="100" stroke="#0284c7" strokeWidth="1.5" />
+            <line x1="80" y1="78" x2="80" y2="100" stroke="#0284c7" strokeWidth="1.5" />
+            
+            {/* Sharp Spikes on floor */}
+            <polygon points="56,78 66,54 76,78" fill="#ef4444" stroke="#f87171" strokeWidth="2" />
+            <polygon points="74,78 84,54 94,78" fill="#ef4444" stroke="#f87171" strokeWidth="2" />
+
+            {/* Glowing Geometry Dash Cube (Jumping/Rotating mid-air) */}
+            <g transform="translate(32, 42) rotate(-15 15 15)">
+              {/* Outer yellow border */}
+              <rect x="0" y="0" width="30" height="30" rx="4" fill="#84cc16" stroke="#facc15" strokeWidth="3" />
+              {/* Inner face panel */}
+              <rect x="5" y="5" width="20" height="20" rx="2" fill="#4d7c0f" />
+              {/* Eyes */}
+              <rect x="8" y="9" width="5" height="5" fill="#facc15" />
+              <rect x="17" y="9" width="5" height="5" fill="#facc15" />
+              {/* Mouth */}
+              <rect x="10" y="17" width="10" height="4" fill="#facc15" />
+            </g>
+
+            {/* Jump particles / motion trails */}
+            <circle cx="20" cy="58" r="2" fill="#38bdf8" className="animate-ping" />
+            <circle cx="16" cy="66" r="3" fill="#a855f7" />
+            <circle cx="24" cy="72" r="2.5" fill="#facc15" />
+          </svg>
+        </div>
+      );
+    case 'cookie-clicker':
+      return (
+        <div className="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-amber-600/30 via-amber-950/20 to-transparent" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(217,119,6,0.6)]" viewBox="0 0 100 100" fill="none">
+            {/* Outer golden cookie */}
+            <circle cx="50" cy="50" r="36" fill="#d97706" stroke="#b45309" strokeWidth="3" />
+            <circle cx="50" cy="50" r="32" fill="#f59e0b" />
+            {/* Texture spots */}
+            <circle cx="42" cy="40" r="4.5" fill="#78350f" />
+            <circle cx="60" cy="38" r="5" fill="#78350f" />
+            <circle cx="36" cy="58" r="4" fill="#78350f" />
+            <circle cx="56" cy="56" r="5.5" fill="#78350f" />
+            <circle cx="48" cy="68" r="3.5" fill="#78350f" />
+            <circle cx="66" cy="50" r="3" fill="#78350f" />
+            <circle cx="32" cy="42" r="3" fill="#78350f" />
+            {/* Chocolate highlights */}
+            <circle cx="41" cy="39" r="1.5" fill="#92400e" />
+            <circle cx="59" cy="37" r="1.5" fill="#92400e" />
+            <circle cx="55" cy="55" r="1.8" fill="#92400e" />
+            {/* Sparkles */}
+            <path d="M78 22 L80 16 L82 22 L88 24 L82 26 L80 32 L78 26 L72 24 Z" fill="#fef08a" />
+            <path d="M18 68 L19 64 L20 68 L24 69 L20 70 L19 74 L18 70 L14 69 Z" fill="#fef08a" />
+            {/* Pointer cursor click effect */}
+            <path d="M68 62 L68 80 L73 75 L77 84 L81 82 L77 73 L83 73 Z" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5" />
+          </svg>
+        </div>
+      );
+    case 'subway-surfers':
+      return (
+        <div className="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-amber-500/25 via-sky-500/10 to-transparent" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_14px_rgba(245,158,11,0.5)]" viewBox="0 0 100 100" fill="none">
+            {/* Perspective tracks */}
+            <path d="M20 90 L42 45 M80 90 L58 45" stroke="#64748b" strokeWidth="3" strokeLinecap="round" />
+            <line x1="30" y1="75" x2="70" y2="75" stroke="#94a3b8" strokeWidth="2.5" />
+            <line x1="37" y1="60" x2="63" y2="60" stroke="#94a3b8" strokeWidth="2" />
+            <line x1="42" y1="50" x2="58" y2="50" stroke="#94a3b8" strokeWidth="1.5" />
+            {/* Subway Train Front */}
+            <rect x="34" y="20" width="32" height="34" rx="6" fill="#0284c7" stroke="#38bdf8" strokeWidth="2" />
+            {/* Train windshield */}
+            <rect x="38" y="24" width="24" height="12" rx="2" fill="#0f172a" />
+            {/* Headlights */}
+            <circle cx="40" cy="46" r="3" fill="#facc15" />
+            <circle cx="60" cy="46" r="3" fill="#facc15" />
+            <line x1="47" y1="46" x2="53" y2="46" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
+            {/* Golden Coin floating in foreground */}
+            <circle cx="50" cy="72" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="2" />
+            <text x="50" y="75" textAnchor="middle" fill="#78350f" fontSize="7" fontWeight="bold">$</text>
+            {/* Speed streaks */}
+            <line x1="12" y1="55" x2="28" y2="55" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" />
+            <line x1="72" y1="55" x2="88" y2="55" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" />
+          </svg>
+        </div>
+      );
     case 'retro-snake':
       return (
         <div className="w-full h-full bg-slate-900 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
