@@ -91,13 +91,13 @@ const indexHtml = `<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus Arcade - Unblocked Games Portal</title>
-    <meta name="description" content="A fast, clean unblocked games portal featuring classic HTML5 games loaded via an iframe JSON catalog." />
-    <meta property="og:title" content="Nexus Arcade - Unblocked Games Portal" />
-    <meta property="og:description" content="A fast, clean unblocked games portal featuring classic HTML5 games loaded via an iframe JSON catalog." />
+    <title>gam- 2</title>
+    <meta name="description" content="gam- 2 interactive module and simulation workspace." />
+    <meta property="og:title" content="gam- 2" />
+    <meta property="og:description" content="gam- 2 interactive module and simulation workspace." />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M6 11h4V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4v4a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-4H6a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z'/></svg>" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" />
 
     <!-- Tailwind CSS with fallback styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -132,7 +132,7 @@ const indexHtml = `<!doctype html>
     <div id="root">
       <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background-color: #020617; color: #94a3b8;">
         <div style="width: 40px; height: 40px; border: 4px solid #38bdf8; border-top-color: transparent; border-radius: 50%;" class="spinner"></div>
-        <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Loading Nexus Arcade...</div>
+        <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Loading gam- 2...</div>
       </div>
     </div>
 

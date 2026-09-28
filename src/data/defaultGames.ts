@@ -2,6 +2,26 @@ import { Game } from '../types';
 
 export const DEFAULT_GAMES: Game[] = [
   {
+    id: "baseball-bros",
+    title: "Baseball Bros",
+    slug: "baseball-bros",
+    category: "Action",
+    description: "Step up to the plate in Baseball Bros! Swing for the fences, time your hits, pitch strikes, and hit epic grand slams in fast-paced arcade baseball action.",
+    iframeUrl: "https://baseballbros.io/",
+    thumbnail: "baseball-bros",
+    controls: [
+      "Mouse / Space: Swing bat & pitch",
+      "Arrow Keys / WASD: Aim pitch & steer runner",
+      "Fullscreen: Click maximize button for best view"
+    ],
+    tags: ["Sports", "Baseball", "Action", "Arcade", "Multiplayer"],
+    badge: "NEW",
+    rating: 4.96,
+    plays: 28400,
+    featured: true,
+    aspectRatio: "16:9"
+  },
+  {
     id: "geometry-dash",
     title: "Geometry Dash",
     slug: "geometry-dash",
@@ -18,7 +38,7 @@ export const DEFAULT_GAMES: Game[] = [
     badge: "HOT",
     rating: 4.98,
     plays: 62400,
-    featured: true,
+    featured: false,
     aspectRatio: "16:9"
   },
   {
@@ -26,13 +46,13 @@ export const DEFAULT_GAMES: Game[] = [
     title: "Cookie Clicker",
     slug: "cookie-clicker",
     category: "Strategy",
-    description: "The original idle clicking game! Bake billions of cookies, purchase grandma bakeries, factories, and cosmic portals to exponentially grow your cookie empire.",
-    iframeUrl: "https://ozh.github.io/cookieclicker/",
+    description: "The classic idle clicking game! Bake cookies, buy cursors, grandmas, farms, factories, mines, shipments, and alchemy labs. Runs locally with zero blockable dependencies!",
+    iframeUrl: "./games/cookie-clicker.html",
     thumbnail: "cookie-clicker",
     controls: [
-      "Left Click: Click giant cookie & buy upgrades",
-      "Mouse Wheel: Scroll store & upgrades",
-      "Auto-save: Game progress saves automatically"
+      "Left Click: Click cookie & buy upgrades",
+      "Store: Purchase automated production",
+      "Auto-save: Saves automatically every 5s"
     ],
     tags: ["Idle", "Strategy", "Clicker", "Classic", "Casual"],
     badge: "POPULAR",

@@ -8,6 +8,42 @@ interface ThumbnailProps {
 
 export const GameThumbnail: React.FC<ThumbnailProps> = ({ id, category }) => {
   switch (id) {
+    case 'baseball-bros':
+      return (
+        <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 bg-radial from-emerald-600/30 via-emerald-950/20 to-slate-950" />
+          {/* Diamond field graphic */}
+          <div className="absolute w-36 h-36 border border-emerald-500/20 rotate-45 rounded-lg pointer-events-none" />
+          <svg className="w-24 h-24 drop-shadow-[0_0_16px_rgba(52,211,153,0.5)]" viewBox="0 0 100 100" fill="none">
+            {/* Wooden Baseball Bat */}
+            <g transform="translate(15, 20) rotate(-40 30 30)">
+              {/* Bat barrel */}
+              <rect x="18" y="8" width="12" height="42" rx="4" fill="#d97706" stroke="#b45309" strokeWidth="2" />
+              {/* Bat handle */}
+              <rect x="21" y="50" width="6" height="28" rx="2" fill="#fde68a" stroke="#d97706" strokeWidth="1.5" />
+              {/* Grip tape */}
+              <line x1="21" y1="56" x2="27" y2="58" stroke="#78350f" strokeWidth="1.5" />
+              <line x1="21" y1="62" x2="27" y2="64" stroke="#78350f" strokeWidth="1.5" />
+              <line x1="21" y1="68" x2="27" y2="70" stroke="#78350f" strokeWidth="1.5" />
+              {/* Knob */}
+              <circle cx="24" cy="78" r="4.5" fill="#b45309" />
+            </g>
+
+            {/* Baseball Sphere */}
+            <g transform="translate(48, 42)">
+              <circle cx="20" cy="20" r="16" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="2" />
+              {/* Red Curved Stitches */}
+              <path d="M12 9 C8 15 8 25 12 31" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2 1.5" fill="none" />
+              <path d="M28 9 C32 15 32 25 28 31" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2 1.5" fill="none" />
+            </g>
+
+            {/* Impact Speed Trails */}
+            <path d="M42 36 L30 30" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
+            <path d="M46 30 L38 22" stroke="#6ee7b7" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M52 26 L46 18" stroke="#a7f3d0" strokeWidth="1" strokeLinecap="round" />
+          </svg>
+        </div>
+      );
     case 'geometry-dash':
       return (
         <div className="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">

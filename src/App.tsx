@@ -10,6 +10,8 @@ import { AddGameModal } from './components/AddGameModal';
 import { JsonCatalogModal } from './components/JsonCatalogModal';
 import { CloakView } from './components/CloakView';
 
+import { applyDisguise, getCurrentDisguise } from './utils/camouflage';
+
 const REMOVED_GAME_IDS = new Set([
   'block-master-tetris',
   'game-2048',
@@ -22,6 +24,19 @@ const REMOVED_GAME_IDS = new Set([
   'highway-rush-2d'
 ]);
 
+function mergeGames(existing: Game[]): Game[] {
+  const map = new Map<string, Game>();
+  DEFAULT_GAMES.forEach(g => map.set(g.id, g));
+  existing.forEach(g => {
+    if (!REMOVED_GAME_IDS.has(g.id)) {
+      if (!map.has(g.id)) {
+        map.set(g.id, g);
+      }
+    }
+  });
+  return Array.from(map.values());
+}
+
 export default function App() {
   const [games, setGames] = useState<Game[]>(() => {
     try {
@@ -29,15 +44,12 @@ export default function App() {
       if (saved) {
         const parsed: Game[] = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
-          if (cleaned.length > 0) {
-            localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
-            return cleaned;
-          }
+          const merged = mergeGames(parsed);
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(merged));
+          return merged;
         }
       }
     } catch {}
-    localStorage.removeItem('nexus_games_catalog');
     return DEFAULT_GAMES;
   });
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
@@ -69,12 +81,10 @@ export default function App() {
       if (saved) {
         const parsed: Game[] = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
-          if (cleaned.length > 0) {
-            setGames(cleaned);
-            localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
-            return;
-          }
+          const merged = mergeGames(parsed);
+          setGames(merged);
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(merged));
+          return;
         }
       }
 
@@ -84,9 +94,9 @@ export default function App() {
       if (response.ok) {
         const data: Game[] = await response.json();
         if (Array.isArray(data) && data.length > 0) {
-          const cleaned = data.filter(g => !REMOVED_GAME_IDS.has(g.id));
-          setGames(cleaned.length > 0 ? cleaned : DEFAULT_GAMES);
-          localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned.length > 0 ? cleaned : DEFAULT_GAMES));
+          const merged = mergeGames(data);
+          setGames(merged);
+          localStorage.setItem('nexus_games_catalog', JSON.stringify(merged));
           return;
         }
       }
@@ -107,7 +117,7 @@ export default function App() {
       if (nextState) {
         document.title = 'AP World History - Google Docs';
       } else {
-        document.title = 'Nexus Arcade - Unblocked Games Portal';
+        applyDisguise(getCurrentDisguise());
       }
       return nextState;
     });
@@ -408,11 +418,11 @@ export default function App() {
       <footer className="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 mt-16 text-slate-500 text-xs">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="font-semibold text-slate-400">Nexus Arcade</span>
+            <span className="font-bold text-slate-300">gam- 2</span>
             <span aria-hidden="true">·</span>
-            <span>HTML5 Unblocked Games Catalog</span>
+            <span>Interactive Catalog</span>
             <span aria-hidden="true">·</span>
-            <span className="font-mono">{games.length} Games in JSON</span>
+            <span className="font-mono">{games.length} Entries</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">

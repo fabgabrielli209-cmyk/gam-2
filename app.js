@@ -126,12 +126,80 @@ function resolveGameUrl(relPath) {
   return window.location.origin + basePath + cleanRel;
 }
 
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
+
+function resolveGameUrl(relPath) {
+  if (!relPath) return '';
+  if (relPath.startsWith('http://') || relPath.startsWith('https://')) return relPath;
+  let basePath = window.location.pathname || '/';
+  if (!basePath.endsWith('/')) {
+    if (basePath.includes('.')) {
+      basePath = basePath.substring(0, basePath.lastIndexOf('/') + 1);
+    } else {
+      basePath = basePath + '/';
+    }
+  }
+  const cleanRel = relPath.replace(/^\.\//, '');
+  return window.location.origin + basePath + cleanRel;
+}
+
 /**
  * Nexus Arcade - Unblocked Games Portal
  * Pure browser-compatible script entry point for index.html
  */
 
 const DEFAULT_GAMES = [
+  {
+    id: "baseball-bros",
+    title: "Baseball Bros",
+    slug: "baseball-bros",
+    category: "Action",
+    description: "Step up to the plate in Baseball Bros! Swing for the fences, time your hits, pitch strikes, and hit epic grand slams in fast-paced arcade baseball action.",
+    iframeUrl: "https://baseballbros.io/",
+    thumbnail: "baseball-bros",
+    controls: [
+      "Mouse / Space: Swing bat & pitch",
+      "Arrow Keys / WASD: Aim pitch & steer runner",
+      "Fullscreen: Click maximize button for best view"
+    ],
+    tags: ["Sports", "Baseball", "Action", "Arcade", "Multiplayer"],
+    badge: "NEW",
+    rating: 4.96,
+    plays: 28400,
+    featured: true,
+    aspectRatio: "16:9"
+  },
   {
     id: "geometry-dash",
     title: "Geometry Dash",
@@ -156,13 +224,13 @@ const DEFAULT_GAMES = [
     title: "Cookie Clicker",
     slug: "cookie-clicker",
     category: "Strategy",
-    description: "The original idle clicking game! Bake billions of cookies, purchase grandma bakeries, factories, and cosmic portals to exponentially grow your cookie empire.",
-    iframeUrl: "https://ozh.github.io/cookieclicker/",
+    description: "The classic idle clicking game! Bake cookies, buy cursors, grandmas, farms, factories, mines, shipments, and alchemy labs. Runs locally with zero blockable dependencies!",
+    iframeUrl: "./games/cookie-clicker.html",
     thumbnail: "cookie-clicker",
     controls: [
-      "Left Click: Click giant cookie & buy upgrades",
-      "Mouse Wheel: Scroll store & upgrades",
-      "Auto-save: Game progress saves automatically"
+      "Left Click: Click cookie & buy upgrades",
+      "Store: Purchase automated production",
+      "Auto-save: Saves automatically every 5s"
     ],
     tags: ["Idle", "Strategy", "Clicker", "Classic", "Casual"],
     badge: "POPULAR",
@@ -206,6 +274,73 @@ const DEFAULT_GAMES = [
   }
 ];
 
+// Anti-Block Camouflage Presets
+const DISGUISE_PRESETS = [
+  { id: 'gam-2', label: 'Default (gam- 2)', title: 'gam- 2', favicon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" },
+  { id: 'classroom', label: 'Google Classroom', title: 'Classes', favicon: 'https://ssl.gstatic.com/classroom/favicon.png' },
+  { id: 'docs', label: 'Google Docs', title: 'Untitled document - Google Docs', favicon: 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico' },
+  { id: 'drive', label: 'Google Drive', title: 'My Drive - Google Drive', favicon: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png' },
+  { id: 'desmos', label: 'Desmos Calculator', title: 'Desmos | Graphing Calculator', favicon: 'https://www.desmos.com/favicon.ico' },
+  { id: 'canvas', label: 'Canvas LMS', title: 'Dashboard - Canvas', favicon: 'https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico' }
+];
+
+function applyDisguise(type) {
+  const preset = DISGUISE_PRESETS.find(p => p.id === type) || DISGUISE_PRESETS[0];
+  document.title = preset.title;
+  let link = document.querySelector("link[rel*='icon']");
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+  }
+  link.href = preset.favicon;
+  try { localStorage.setItem('gam2_disguise_mode', type); } catch (e) {}
+}
+
+function getCurrentDisguise() {
+  try {
+    const saved = localStorage.getItem('gam2_disguise_mode');
+    if (saved && DISGUISE_PRESETS.some(p => p.id === saved)) return saved;
+  } catch (e) {}
+  return 'gam-2';
+}
+
+function launchAboutBlank() {
+  try {
+    const win = window.open('about:blank', '_blank');
+    if (!win) {
+      alert('Pop-up was blocked. Please allow pop-ups for this site to open the Anti-Block Cloaked Window.');
+      return;
+    }
+    const current = getCurrentDisguise();
+    const preset = DISGUISE_PRESETS.find(p => p.id === current) || DISGUISE_PRESETS[1];
+    const doc = win.document;
+    doc.title = preset.title;
+    const link = doc.createElement('link');
+    link.rel = 'icon';
+    link.href = preset.favicon;
+    doc.head.appendChild(link);
+    const iframe = doc.createElement('iframe');
+    iframe.src = window.location.href;
+    iframe.style.position = 'fixed';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    iframe.style.width = '100vw';
+    iframe.style.height = '100vh';
+    iframe.style.border = 'none';
+    iframe.style.margin = '0';
+    iframe.style.padding = '0';
+    iframe.allow = 'fullscreen; autoplay; gamepad';
+    doc.body.style.margin = '0';
+    doc.body.style.padding = '0';
+    doc.body.style.overflow = 'hidden';
+    doc.body.style.background = '#020617';
+    doc.body.appendChild(iframe);
+  } catch(e) {
+    console.error('About:blank error', e);
+  }
+}
+
 // App State
 const state = {
   games: DEFAULT_GAMES,
@@ -218,6 +353,7 @@ const state = {
   isAddModalOpen: false,
   isJsonModalOpen: false,
   isTheater: false,
+  isDisguiseOpen: false,
   likedGames: {}
 };
 
@@ -233,6 +369,19 @@ const REMOVED_GAME_IDS = new Set([
   'minesweeper-classic',
   'highway-rush-2d'
 ]);
+
+function mergeGames(existing) {
+  const map = new Map();
+  DEFAULT_GAMES.forEach(g => map.set(g.id, g));
+  existing.forEach(g => {
+    if (!REMOVED_GAME_IDS.has(g.id)) {
+      if (!map.has(g.id)) {
+        map.set(g.id, g);
+      }
+    }
+  });
+  return Array.from(map.values());
+}
 
 // Initialize State from Storage & Fetch games.json
 function initApp() {
@@ -252,14 +401,9 @@ function initApp() {
     if (savedGames) {
       const parsed = JSON.parse(savedGames);
       if (Array.isArray(parsed)) {
-        const cleaned = parsed.filter(g => !REMOVED_GAME_IDS.has(g.id));
-        if (cleaned.length > 0) {
-          state.games = cleaned;
-          localStorage.setItem('nexus_games_catalog', JSON.stringify(cleaned));
-        } else {
-          state.games = DEFAULT_GAMES;
-          localStorage.removeItem('nexus_games_catalog');
-        }
+        const merged = mergeGames(parsed);
+        state.games = merged;
+        localStorage.setItem('nexus_games_catalog', JSON.stringify(merged));
       }
     }
   } catch (e) {}
@@ -269,19 +413,25 @@ function initApp() {
     .then(res => res.ok ? res.json() : null)
     .then(data => {
       if (Array.isArray(data) && data.length > 0) {
-        const cleaned = data.filter(g => !REMOVED_GAME_IDS.has(g.id));
-        state.games = cleaned.length > 0 ? cleaned : DEFAULT_GAMES;
+        const merged = mergeGames(data);
+        state.games = merged;
         localStorage.setItem('nexus_games_catalog', JSON.stringify(state.games));
         render();
       }
     })
     .catch(() => {});
 
+  applyDisguise(getCurrentDisguise());
+
   // Keyboard shortcut for Panic Cloak (Esc)
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !state.isAddModalOpen && !state.isJsonModalOpen) {
       state.isCloaked = !state.isCloaked;
-      document.title = state.isCloaked ? 'AP World History - Google Docs' : 'Nexus Arcade - Unblocked Games Portal';
+      if (state.isCloaked) {
+        document.title = 'AP World History - Google Docs';
+      } else {
+        applyDisguise(getCurrentDisguise());
+      }
       render();
     }
   });
@@ -317,6 +467,31 @@ function getFilteredGames() {
 // Generate Game Vector Thumbnail SVG
 function getThumbnailHtml(id, category) {
   switch (id) {
+    case 'baseball-bros':
+      return `
+        <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-radial from-emerald-600/30 via-emerald-950/20 to-slate-950"></div>
+          <div class="absolute w-32 h-32 border border-emerald-500/20 rotate-45 rounded-lg pointer-events-none"></div>
+          <svg class="w-20 h-20 drop-shadow-[0_0_16px_rgba(52,211,153,0.5)]" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(15, 20) rotate(-40 30 30)">
+              <rect x="18" y="8" width="12" height="42" rx="4" fill="#d97706" stroke="#b45309" stroke-width="2" />
+              <rect x="21" y="50" width="6" height="28" rx="2" fill="#fde68a" stroke="#d97706" stroke-width="1.5" />
+              <line x1="21" y1="56" x2="27" y2="58" stroke="#78350f" stroke-width="1.5" />
+              <line x1="21" y1="62" x2="27" y2="64" stroke="#78350f" stroke-width="1.5" />
+              <line x1="21" y1="68" x2="27" y2="70" stroke="#78350f" stroke-width="1.5" />
+              <circle cx="24" cy="78" r="4.5" fill="#b45309" />
+            </g>
+            <g transform="translate(48, 42)">
+              <circle cx="20" cy="20" r="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+              <path d="M12 9 C8 15 8 25 12 31" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2 1.5" fill="none" />
+              <path d="M28 9 C32 15 32 25 28 31" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2 1.5" fill="none" />
+            </g>
+            <path d="M42 36 L30 30" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+            <path d="M46 30 L38 22" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M52 26 L46 18" stroke="#a7f3d0" stroke-width="1" stroke-linecap="round" />
+          </svg>
+        </div>
+      `;
     case 'geometry-dash':
       return `
         <div class="w-full h-full bg-slate-950 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
@@ -528,11 +703,13 @@ function render() {
       <header class="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
           <!-- Zone 1: Wordmark -->
-          <a href="#" id="brand-home" class="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white hover:text-sky-400 transition-colors whitespace-nowrap">
-            <svg class="w-5 h-5 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6 11h4V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4v4a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-4H6a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z"/>
-            </svg>
-            <span>Nexus Arcade</span>
+          <a href="#" id="brand-home" class="flex items-center gap-2.5 text-lg font-black tracking-tight text-white hover:text-sky-400 transition-colors whitespace-nowrap">
+            <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-400/30 text-sky-400 font-mono text-sm">
+              g2
+            </span>
+            <span class="bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent font-extrabold tracking-wide">
+              gam- 2
+            </span>
           </a>
 
           <!-- Zone 2: Nav Links -->
@@ -547,16 +724,39 @@ function render() {
             `).join('')}
           </nav>
 
-          <!-- Zone 3: Primary Actions -->
-          <div class="flex items-center gap-2.5 shrink-0">
-            <button id="open-json-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-300 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors">
+          <!-- Zone 3: Primary & Anti-Block Actions -->
+          <div class="flex items-center gap-2 shrink-0">
+            <!-- Anti-Block Cloaked Window -->
+            <button id="open-about-blank-btn" title="Open in an unblocked about:blank cloaked tab (bypasses Securly/GoGuardian filters)" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-300 bg-emerald-950/40 border border-emerald-500/30 rounded-lg hover:bg-emerald-900/50 hover:border-emerald-400 transition-all shadow-xs">
+              <span>↗ Anti-Block Window</span>
+            </button>
+
+            <!-- Disguise Dropdown -->
+            <div class="relative">
+              <button id="disguise-toggle-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-300 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors">
+                <span>👁 Disguise</span>
+              </button>
+              ${state.isDisguiseOpen ? `
+                <div class="absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-50">
+                  <div class="px-3 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Tab Disguise</div>
+                  ${DISGUISE_PRESETS.map(p => `
+                    <button data-disguise="${p.id}" class="disguise-opt-btn w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-800 transition-colors ${getCurrentDisguise() === p.id ? 'text-sky-400 font-bold bg-slate-800/60' : 'text-slate-300'}">
+                      <span>${p.label}</span>
+                      ${getCurrentDisguise() === p.id ? '<span class="text-[10px] text-sky-400">✓</span>' : ''}
+                    </button>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+
+            <button id="open-json-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-300 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors">
               <span>JSON</span>
             </button>
-            <button id="open-add-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-200 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors">
+            <button id="open-add-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-200 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors">
               <span>+ Add Game</span>
             </button>
             <button id="toggle-cloak-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-rose-500/10 text-rose-300 border border-rose-500/30 hover:bg-rose-500/20 transition-colors">
-              <span>Panic Cloak (Esc)</span>
+              <span>Panic (Esc)</span>
             </button>
           </div>
         </div>
@@ -684,14 +884,14 @@ function render() {
       </main>
 
       <!-- Footer -->
-      <footer class="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 mt-16 text-slate-500 text-xs">
+      <footer className="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 mt-16 text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <span class="font-semibold text-slate-400">Nexus Arcade</span>
+            <span class="font-bold text-slate-300">gam- 2</span>
             <span aria-hidden="true">·</span>
-            <span>HTML5 Unblocked Games Catalog</span>
+            <span>Interactive Catalog</span>
             <span aria-hidden="true">·</span>
-            <span class="font-mono">${state.games.length} Games in JSON</span>
+            <span class="font-mono">${state.games.length} Entries</span>
           </div>
           <div class="flex items-center gap-4 text-slate-400">
             <button id="footer-json-btn" class="hover:text-sky-400 transition-colors">View games.json</button>
@@ -1014,13 +1214,32 @@ function attachEventListeners() {
     });
   });
 
+  // Anti-Block & Disguise triggers
+  document.getElementById('open-about-blank-btn')?.addEventListener('click', launchAboutBlank);
+  document.getElementById('disguise-toggle-btn')?.addEventListener('click', () => {
+    state.isDisguiseOpen = !state.isDisguiseOpen;
+    render();
+  });
+  document.querySelectorAll('.disguise-opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-disguise');
+      if (type) applyDisguise(type);
+      state.isDisguiseOpen = false;
+      render();
+    });
+  });
+
   // Modals & Panic cloak triggers
   document.getElementById('open-add-btn')?.addEventListener('click', renderAddModal);
   document.getElementById('open-json-btn')?.addEventListener('click', renderJsonModal);
   document.getElementById('footer-json-btn')?.addEventListener('click', renderJsonModal);
   document.getElementById('toggle-cloak-btn')?.addEventListener('click', () => {
     state.isCloaked = !state.isCloaked;
-    document.title = state.isCloaked ? 'AP World History - Google Docs' : 'Nexus Arcade - Unblocked Games Portal';
+    if (state.isCloaked) {
+      document.title = 'AP World History - Google Docs';
+    } else {
+      applyDisguise(getCurrentDisguise());
+    }
     render();
   });
 
